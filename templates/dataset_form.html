@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://html5-templates.com/" />
+    <title>ProtVec2GO</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+	<header>
+		<div id="logo">Gene Ontology Pipeline</div>
+		<nav>  
+			<ul>
+				<li><a href="/">Home</a>
+				<li><a href="https://html-css-js.com/">HTML</a>
+				<li><a href="https://html-css-js.com/css/code/">CSS</a>
+				<li><a href="https://htmlcheatsheet.com/js/">JS</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>Dataset Form</strong>
+	</section>
+	<section id="pageContent">
+		<main role="main">
+			<article>
+				<h2>Pipeline Form</h2>
+				<p>
+                    Select pipeline settings below and then submit to download a formatted dataset.
+                </p>
+
+                <form action="/server" method="post"> 
+                    <div class="checkbox_entry">
+                        <ul>
+                            <li>Select Evidence Codes</li>
+                            <li><input type='checkbox' id='EXP' name='EXP' value='EXP'> 
+                                <label for='EXP'> EXP</label>
+                               <input type='checkbox' id='IDA' name='IDA' value='IDA'> 
+                                <label for='IDA'> IDA</label>
+                               <input type='checkbox' id='IPI' name='IPI' value='IPI'> 
+                                <label for='IPI'> IPI</label>
+                               <input type='checkbox' id='IMP' name='IMP' value='IMP'> 
+                                <label for='IMP'> IMP</label>
+                               <input type='checkbox' id='IGI' name='IGI' value='IGI'> 
+                                <label for='IGI'> IGI</label>
+                               <input type='checkbox' id='IEP' name='IEP' value='IEP'> 
+                                <label for='IEP'> IEP</label>
+                            </li>
+                            <li>
+                                <input type='checkbox' id='TAS' name='TAS' value='TAS'> 
+                                <label for='TAS'> TAS</label>
+                                <input type='checkbox' id='NC' name='NC' value='NC'> 
+                                <label for='NC'> NC</label>
+                            </li>
+                            <li>
+                                <input type='checkbox' id='HTP' name='HTP' value='HTP'> 
+                                <label for='HTP'> HTP</label>
+                                <input type='checkbox' id='HDA' name='HDA' value='HDA'> 
+                                <label for='HDA'> HDA</label>
+                                <input type='checkbox' id='HMP' name='HMP' value='HMP'> 
+                                <label for='HMP'> HMP</label>
+                                <input type='checkbox' id='HGI' name='HGI' value='HGI'> 
+                                <label for='HGI'> HGI</label>
+                                <input type='checkbox' id='HEP' name='HEP' value='HEP'> 
+                                <label for='HEP'> HEP</label>
+                            </li>
+                            <li>
+                                <input type='checkbox' id='IBA' name='IBA' value='IBA'> 
+                                <label for='IBA'> IBA</label>
+                                <input type='checkbox' id='IBD' name='IBD' value='IBD'> 
+                                <label for='IBD'> IBD</label>
+                                <input type='checkbox' id='IKR' name='IKR' value='IKR'> 
+                                <label for='IKR'> IKR</label>
+                                <input type='checkbox' id='IRD' name='IRD' value='IRD'> 
+                                <label for='IRD'> IRD</label>
+                                <input type='checkbox' id='ISS' name='ISS' value='ISS'> 
+                                <label for='ISS'> ISS</label>
+                                <input type='checkbox' id='ISO' name='ISO' value='ISO'> 
+                                <label for='ISO'> ISO</label>
+                                <input type='checkbox' id='ISA' name='ISA' value='ISA'> 
+                                <label for='ISA'> ISA</label>
+                                <input type='checkbox' id='ISM' name='ISM' value='ISM'> 
+                                <label for='ISM'> ISM</label>
+                                <input type='checkbox' id='IGC' name='IGC' value='IGC'> 
+                                <label for='IGC'> IGC</label>
+                            </li>
+                            <li>
+                                <input type='checkbox' id='RCA' name='RCA' value='RCA'> 
+                                <label for='RCA'> RCA</label>
+                                <input type='checkbox' id='E' name='E' value='E'> 
+                                <label for='E'> E</label>
+                                <input type='checkbox' id='NAS' name='NAS' value='NAS'> 
+                                <label for='NAS'> NAS</label>
+                                <input type='checkbox' id='ND' name='ND' value='ND'> 
+                                <label for='ND'> ND</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <ul>
+                            <li>Select Namespaces</li>
+                            <li>
+                                <input type="checkbox" id="biological_process" name="biological_process" value="biological_process" checked> 
+                                <label for="biological_process"> Biological Process</label>
+                                <input type="checkbox" id="molecular_function" name="molecular_function" value="molecular_function" checked> 
+                                <label for="molecular_function"> Molecular Function</label>
+                                <input type="checkbox" id="cellular_component" name="cellular_component" value="cellular_component" checked> 
+                                <label for="cellular_component"> Cellular Component</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="propogate_annotations" name="propogate_annotations" value="propogate_annotations" checked> 
+                                <label for="propogate_annotations"> Propogate Annotations</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="include_estimated_negative_annotations" name="include_estimated_negative_annotations" value="include_estimated_negative_annotations" checked> 
+                                <label for="include_estimated_negative_annotations"> Include Estimated Negative Annotations</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <ul>
+                            <li>Select filtration method for Gene Ontology terms.</li>
+                            <li>
+
+                                <table style="padding: 25px; border-spacing: 25px">
+                                    <!-- <tr>
+                                        <td>
+                                            <input type="checkbox" id="top_k" name="top_k" value="top_k" checked> 
+                                            <label for="top_k"> Top K Terms</label> <br>
+                                        </td>
+                                        <td>
+                                            <label for="count"> Number of terms</label>
+                                            <input type="number" id="count" name="count" value=120>
+                                        </td>
+                                    </tr> -->
+                                    <tr> 
+                                        <td>
+                                            <input type="checkbox" id="threshold" name="threshold" value="threshold"> 
+                                            <label for="threshold"> Threshold</label>
+                                        </td>
+                                        <td>
+                                            <label for="count"> GO Term Appearance Threshold</label>
+                                            <input type="number" id="count" name="GO Term Appearance Threshold" >
+                                        </td>
+                                    </tr>
+                                
+                                
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <button>Submit Form</button>
+                    </div>
+                </form>
+            </article>
+		</main>
+		<aside>
+			<div class="sidebar"><a href="https://html-css-js.com/">ProtVec2GO Paper</a></div>
+			<div class="sidebar"><a href="https://html-css-js.com/">Documentation</a></div>
+			<div class="sidebar"><a href="https://html-css-js.com/">Mofrad Lab</a></div>
+		</aside>
+	</section>
+	<footer>
+		<p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<address>
+			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+		</address>
+	</footer>
+</body>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</html>
