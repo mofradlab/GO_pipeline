@@ -60,13 +60,17 @@ def enforce_count(annotation_count_dict, namespace, term_count):
     term_list.sort(reverse=True)
     return [x[1] for x in term_list[:term_count]]
 
-def enforce_threshold(annotation_count_dict, namespace, threshold):
+def enforce_threshold(annotation_count_dict, namespace, threshold, term_blacklist=None):
+    if(not term_blacklist):
+        term_blacklist = {}
+    else:
+        term_blacklist = set(term_blacklist)
     term_list = [] 
     for term, count in annotation_count_dict.items():
-        if(godag[term].namespace == namespace):
+        if((godag[term].namespace == namespace or namespace == "all") and term not in term_blacklist):
             term_list.append((count, term))
     term_list.sort(reverse=True)
     i = 0
-    while i < len(term_list) and annotation_count_dict[term_list[i]] >= threshold:
+    while i < len(term_list) and term_list[i][0] >= threshold:
         i += 1
     return [x[1] for x in term_list[:i]]

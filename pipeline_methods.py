@@ -1,11 +1,54 @@
+from load_tools import load_protein_annotations, evidence_codes
+from filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
+
+def construct_tsv(path, prot_dict, prot_ids, term_set):
+    print(path, len(prot_dict), len(prot_ids), len(term_set))
+    columns = ["Uniprot ID", "GO Associations"]
+    with open(path, mode='w') as f:
+        f.write("\t".join(columns) + "\n")
+        for prot_id in prot_ids:
+            if(prot_id in prot_dict):
+                terms = term_set.intersection(prot_dict[prot_id])
+                if(len(terms) > 0):
+                    f.write(f"{prot_id}\t{', '.join(terms)}\n")
+
+def construct_prot_dict(req_dict):
+    input_dict = {}
+    filter_settings = {}
+    filter_settings["evidence_codes"] = [code for code in evidence_codes if code in req_dict]
+    #TODO Support min/max dates in filter settings
+    input_dict["filter_settings"] = filter_settings
+
+    input_dict["propogate_terms"] = "propogate_terms" in req_dict
+
+    term_filter_data = {}
+    term_filter_data["method"] = "None"
+    filter_types = ["min_samples", "top_k"]
+    for filter_type in filter_types:
+        if filter_type in req_dict:
+            term_filter_data["method"] = filter_type
+    term_filter_data["count"] = int(req_dict["GO Term Appearance Threshold"])
+    input_dict["term_filter_data"] = term_filter_data
+
+    namespaces = ["biological_process", "molecular_function", "cellular_component"]
+    input_dict["namespaces"] = [namespace for namespace in namespaces if namespace in req_dict]
+
+    split_data = {}
+    split_data["do_split"] = True
+    split_data["types"] = ["training", "validation", "testing"]
+    split_data["use_clusters"] = "50"
+    input_dict["split_data"] = split_data
+    return input_dict
+
+
 
 
 #Parses an input dictionary to generate several outputs in the generated_datasets directory. 
 def pipeline(input_dict):
     filter_settings = input_dict["filter_settings"]
     codes = filter_settings["evidence_codes"]
-    min_date = 0 if "min_date" in filter_settings else filter_settings["min_date"]
-    max_date = 1e10 if "max_date" in filter_settings else filter_settings["max_date"]
+    min_date = 0 if not "min_date" in filter_settings else filter_settings["min_date"]
+    max_date = 1e10 if not "max_date" in filter_settings else filter_settings["max_date"]
     
     print("loading proteins")
     prot_dict = load_protein_annotations(codes, min_date=min_date, max_date=max_date) #Read in protein annotations made by specific codes. 
