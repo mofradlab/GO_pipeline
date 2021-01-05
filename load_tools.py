@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 from collections import defaultdict
 from Bio.UniProt.GOA import GAF20FIELDS
