@@ -1,6 +1,8 @@
 from goatools.obo_parser import GODag
+import os
+path = os.path.abspath(os.path.dirname(__file__))
+godag = GODag(f"{path}/../data/go-basic.obo")
 
-godag = GODag("../data/go-basic.obo")
 #godag_obsolete = GODag("../data/go-basic.obo", load_obsolete=True)
 
 #protein_annotation_dict should map proteins to lists of (GO ID, evidence code) tuples. 
