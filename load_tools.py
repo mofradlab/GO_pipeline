@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 from collections import defaultdict
-from Bio.UniProt.GOA import GAF20FIELDS
+#from Bio.UniProt.GOA import GAF20FIELDS
+GAF20FIELDS = ['DB', 'DB_Object_ID', 'DB_Object_Symbol', 'Qualifier', 'GO_ID', 'DB:Reference', 'Evidence', 'With', 'Aspect', 'DB_Object_Name', 'Synonym', 'DB_Object_Type', 'Taxon_ID', 'Date', 'Assigned_By', 'Annotation_Extension', 'Gene_Product_Form_ID']
 
 #Codes are semi-redundant, and proteins are often annotated using multiple codes. 
 # annotation_codes = ["ECO_0000247", "ECO_0000250", "ECO_0000255", "ECO_0000266", "ECO_0000269", "ECO_0000270", "ECO_0000303", 
