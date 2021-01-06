@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, send_file
-from pipeline_methods import construct_prot_dict, pipeline
+from pipeline_app.pipeline_methods import construct_prot_dict, pipeline
 import tarfile
 import os
 

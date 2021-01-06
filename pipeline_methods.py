@@ -1,5 +1,5 @@
-from load_tools import load_protein_annotations, evidence_codes
-from filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
+from pipeline_app.load_tools import load_protein_annotations, evidence_codes
+from pipeline_app.filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
 import os
 root_path = os.path.abspath(os.path.dirname(__file__))
 
