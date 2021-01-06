@@ -12,7 +12,7 @@ def construct_tsv(path, prot_dict, prot_ids, term_set):
             if(prot_id in prot_dict):
                 terms = term_set.intersection(prot_dict[prot_id])
                 if(len(terms) > 0):
-                    f.write(f"{prot_id}\t{', '.join(terms)}\n")
+                    f.write("{}\t{}\n".format(prot_id, ", ".join(terms)))
 
 def construct_prot_dict(req_dict):
     input_dict = {}
