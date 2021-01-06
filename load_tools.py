@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from collections import defaultdict
+import os
 #from Bio.UniProt.GOA import GAF20FIELDS
 GAF20FIELDS = ['DB', 'DB_Object_ID', 'DB_Object_Symbol', 'Qualifier', 'GO_ID', 'DB:Reference', 'Evidence', 'With', 'Aspect', 'DB_Object_Name', 'Synonym', 'DB_Object_Type', 'Taxon_ID', 'Date', 'Assigned_By', 'Annotation_Extension', 'Gene_Product_Form_ID']
 
@@ -80,8 +81,9 @@ def read_table_annotations(tab_path, protein_annotations_dict, code):
 
 def read_codes(codes):
     protein_annotations_dict = {}
+    root_path = os.path.abspath(os.path.dirname(__file__))
     for code in codes:
-        path = "../data/uniprot-reviewed[{}].tab".format(code)
+        path = "{}/../../data/uniprot-reviewed[{}].tab".format(root_path, code)
         read_table_annotations(path, protein_annotations_dict, code)
     for prot_id, annotations in protein_annotations_dict.items():
         protein_annotations_dict[prot_id] = list(set([x[0] for x in annotations]))
@@ -91,7 +93,9 @@ def read_codes(codes):
 def load_protein_annotations(annotation_codes, min_date=0, max_date=1e10):
     annotation_codes = set(annotation_codes)
     annot_dict = defaultdict(set)
-    df_iter = pd.read_csv("../data/swissprot_goa.gaf.gz", dtype=str,
+    root_path = os.path.abspath(os.path.dirname(__file__))
+
+    df_iter = pd.read_csv("{}/../../data/swissprot_goa.gaf.gz".format(root_path), dtype=str,
                           sep='\t',
                           comment='!',
                           names=GAF20FIELDS,

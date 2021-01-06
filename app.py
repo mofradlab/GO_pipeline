@@ -31,12 +31,13 @@ def process_sequence():
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
         pipeline(input_dict)
-        source_dir = "../data/generated_datasets/"
-        with tarfile.open("../data/gene_ontology_data.tar.gz", "w:gz") as tar:
+        root_path = os.path.abspath(os.path.dirname(__file__))
+        source_dir = "{}/../../data/generated_datasets/".format(root_path)
+        with tarfile.open("{}/../../data/gene_ontology_data.tar.gz".format(root_path), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
         #config_dict = parse_server_multidict(request.form)
         #return str(config_dict)
-        return send_file("../data/gene_ontology_data.tar.gz")
+        return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
 
 if __name__ == '__main__':
     app.run()
