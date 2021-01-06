@@ -1,5 +1,7 @@
 from load_tools import load_protein_annotations, evidence_codes
 from filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
+import os
+root_path = os.path.abspath(os.path.dirname(__file__))
 
 def construct_tsv(path, prot_dict, prot_ids, term_set):
     print(path, len(prot_dict), len(prot_ids), len(term_set))
@@ -81,26 +83,25 @@ def pipeline(input_dict):
         if(split_data["do_split"]):
             for prot_set_type in split_data["types"]:
                 if(split_data["use_clusters"] == "50"):
-                    split_path = "../data/data_splits/cluster50"
+                    split_path = "{}/../../data/data_splits/cluster50".format(root_path)
                 elif(split_data["use_clusters"] == False):
-                    split_path = "../data/data_splits/random"
+                    split_path = "{}/../../data/data_splits/random".format(root_path)
 
-                with open(f"{split_path}/{prot_set_type}_ids.txt", "r") as f:
+                with open("{}/{}_ids.txt".format(split_path, prot_set_type), "r") as f:
                     prot_ids = set([x[:-1] for x in f.readlines()])
                 
                 print("prot_ids:", len(prot_ids))
 
                 print("saving results")
-                path = f"../data/generated_datasets/{prot_set_type}_{namespace}_annotations.tsv"
-                print(f"saving to {path}")
+                path = "{}/../../data/generated_datasets/{}_{}_annotations.tsv".format(root_path, prot_set_type, namespace)
+                print("saving to {}".format(path))
                 construct_tsv(path, prot_dict, prot_ids, set(namespace_term_list))
-                
         else:
             prot_ids = set(prot_dict.keys())
 
             print("prot_ids:", len(prot_ids))
 
             print("saving results")
-            path = f"../data/generated_datasets/{prot_set_type}_{namespace}_annotations.tsv"
-            print(f"saving to {path}")
+            path = "{}/../../data/generated_datasets/{}_{}_annotations.tsv".format(root_path, prot_set_type, namespace)
+            print("saving to {}".format(path))
             construct_tsv(path, prot_dict, prot_ids, set(namespace_term_list))
