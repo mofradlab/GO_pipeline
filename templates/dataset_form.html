@@ -22,17 +22,15 @@
 			</ul>
         </nav>
 	</header>
-	<section>
-		<strong>Dataset Form</strong>
-	</section>
 	<section id="pageContent">
 		<main role="main">
 			<article>
-				<h2>Pipeline Form</h2>
+				<h1>Pipeline Form</h1>
 				<p>
                     Select pipeline settings below and then submit to download a formatted dataset.
                 </p>
 
+<<<<<<< HEAD
                 <script>
                       function get_results_path() {
                         var dataset_form = document.getElementById("dataset_form");
@@ -64,6 +62,9 @@
                 <form id="dataset_form", target="_blank", action="/server" method="post"> 
                     <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
                     <input type='checkbox' id='EXP' name='EXP' value="True" checked> 
+=======
+                <form action="server" method="post"> 
+>>>>>>> 929d6aa4ea1c2185184122292088ac3fb5248fd0
                     <div class="checkbox_entry">
                         <ul>
                             <li>Select Evidence Codes</li>
@@ -207,5 +208,4 @@
     </footer>
     <script type="text/javascript" src="{{ url_for('static', filename='js/form_handling.js') }}"></script>
 </body>
-
 </html>

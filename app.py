@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, send_file
 from pipeline_app.pipeline_methods import construct_prot_dict, pipeline
 import tarfile
+import logging
 import os
 from pipeline_app.dash_app import initialize_dash_app
+
+logging.basicConfig(filename='/home/l/ll/llp/pipeline/pipeline_app/pipeline_app/app.log', level=logging.DEBUG)
+logging.error("test message")
 
 app = Flask(__name__)
 
@@ -30,6 +34,7 @@ def process_sequence():
     print("recieved post request")
     if request.method == 'POST':
         req_dict = request.form.to_dict()
+        logging.debug(req_dict)
         print(req_dict)
         print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
