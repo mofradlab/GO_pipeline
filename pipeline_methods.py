@@ -5,7 +5,7 @@ import os
 import logging
 root_path = os.path.abspath(os.path.dirname(__file__))
 
-logging.basicConfig(filename='/home/l/ll/llp/pipeline/pipeline_app/pipeline_app/app.log', level=logging.DEBUG)
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
 
 def construct_tsv(path, prot_dict, prot_ids, term_set):
     print(path, len(prot_dict), len(prot_ids), len(term_set))

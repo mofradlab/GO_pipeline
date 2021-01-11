@@ -5,7 +5,7 @@ import logging
 import os
 from pipeline_app.dash_app import initialize_dash_app
 
-logging.basicConfig(filename='/home/l/ll/llp/pipeline/pipeline_app/pipeline_app/app.log', level=logging.DEBUG)
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
 logging.error("test message")
 
 app = Flask(__name__)
