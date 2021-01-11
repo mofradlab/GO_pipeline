@@ -1,5 +1,6 @@
 from pipeline_app.load_tools import load_protein_annotations, evidence_codes
 from pipeline_app.filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
+import pandas as pd
 import os
 root_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -16,6 +17,7 @@ def construct_tsv(path, prot_dict, prot_ids, term_set):
 
 def construct_prot_dict(req_dict):
     input_dict = {}
+    input_dict["form_content_id"] = req_dict["form_content_id"]
     filter_settings = {}
     filter_settings["evidence_codes"] = [code for code in evidence_codes if code in req_dict]
     #TODO Support min/max dates in filter settings
@@ -44,9 +46,10 @@ def construct_prot_dict(req_dict):
 
 
 
-
 #Parses an input dictionary to generate several outputs in the generated_datasets directory. 
-def pipeline(input_dict):
+def pipeline(input_dict, analysis_content_dict):
+    analysis_content = {}
+
     filter_settings = input_dict["filter_settings"]
     codes = filter_settings["evidence_codes"]
     min_date = 0 if not "min_date" in filter_settings else filter_settings["min_date"]
@@ -64,7 +67,8 @@ def pipeline(input_dict):
         
     annotation_dict = invert_protein_annotation_dict(prot_dict) #Maps GO IDs to lists of protein IDs. 
     annotation_counts_dict = get_counts_dict(annotation_dict)
-        
+    
+    
     print("filtering rare terms")
     #Filter terms for each namespace
     term_filter_data = input_dict["term_filter_data"]
@@ -72,12 +76,15 @@ def pipeline(input_dict):
         filter_method = lambda namespace: enforce_threshold(annotation_counts_dict, namespace, term_filter_data["count"])
     elif(term_filter_data["method"] == "top_k"):
         filter_method = lambda namespace: enforce_count(annotation_counts_dict, namespace, term_filter_data["count"])
-    
+
     for namespace in input_dict["namespaces"]:
         namespace_term_list = filter_method(namespace)
+        namespace_term_counts = [annotation_counts_dict[term] for term in namespace_term_list]
+        namespace_df = pd.DataFrame(list(zip(namespace_term_list, namespace_term_counts)), columns=["GO_term", "count"])
+        analysis_content[namespace] = namespace_df
+        
         print("filtering namespace:", namespace)
         print("namespace_term_list length", len(namespace_term_list))
-
         print("loading split partition")
         split_data = input_dict["split_data"]
         if(split_data["do_split"]):
@@ -105,3 +112,4 @@ def pipeline(input_dict):
             path = "{}/../../data/generated_datasets/{}_{}_annotations.tsv".format(root_path, prot_set_type, namespace)
             print("saving to {}".format(path))
             construct_tsv(path, prot_dict, prot_ids, set(namespace_term_list))
+    analysis_content_dict[input_dict["form_content_id"]] = analysis_content

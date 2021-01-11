@@ -2,8 +2,12 @@ from flask import Flask, render_template, request, send_file
 from pipeline_app.pipeline_methods import construct_prot_dict, pipeline
 import tarfile
 import os
+from pipeline_app.dash_app import initialize_dash_app
 
 app = Flask(__name__)
+
+analysis_content_dict = {}
+dash_app = initialize_dash_app(__name__, app, analysis_content_dict, url_base_pathname="/results/")
 
 @app.route('/')
 def default():
@@ -30,14 +34,20 @@ def process_sequence():
         print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
-        pipeline(input_dict)
+
+
         root_path = os.path.abspath(os.path.dirname(__file__))
+        # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
+
+        pipeline(input_dict, analysis_content_dict)
+        
         source_dir = "{}/../../data/generated_datasets/".format(root_path)
         with tarfile.open("{}/../../data/gene_ontology_data.tar.gz".format(root_path), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
         #config_dict = parse_server_multidict(request.form)
         #return str(config_dict)
         return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
+
 
 if __name__ == '__main__':
     app.run()

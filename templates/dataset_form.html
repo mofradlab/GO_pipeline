@@ -20,7 +20,7 @@
 				<li><a href="https://html-css-js.com/css/code/">CSS</a>
 				<li><a href="https://htmlcheatsheet.com/js/">JS</a>
 			</ul>
-		</nav>
+        </nav>
 	</header>
 	<section>
 		<strong>Dataset Form</strong>
@@ -33,7 +33,37 @@
                     Select pipeline settings below and then submit to download a formatted dataset.
                 </p>
 
-                <form action="/server" method="post"> 
+                <script>
+                      function get_results_path() {
+                        var dataset_form = document.getElementById("dataset_form");
+                        var inputs = document.getElementById("dataset_form").elements;
+                        form_string = ""
+                        // Iterate over the form controls
+                        for (i = 0; i < inputs.length; i++) {
+                            form_string = form_string + inputs[i].outerHTML
+                        }
+                        console.log(form_string);
+                        string_hash = cyrb53(form_string)
+                        console.log("string hash", string_hash)
+                        return '/results/' + string_hash
+                    }
+
+                    const cyrb53 = function(str, seed = 0) {
+                        let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+                        for (let i = 0, ch; i < str.length; i++) {
+                            ch = str.charCodeAt(i);
+                            h1 = Math.imul(h1 ^ ch, 2654435761);
+                            h2 = Math.imul(h2 ^ ch, 1597334677);
+                        }
+                        h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+                        h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+                        return 4294967296 * (2097151 & h2) + (h1>>>0);
+                    };
+                </script>
+
+                <form id="dataset_form", target="_blank", action="/server" method="post"> 
+                    <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
+                    <input type='checkbox' id='EXP' name='EXP' value="True" checked> 
                     <div class="checkbox_entry">
                         <ul>
                             <li>Select Evidence Codes</li>
@@ -144,11 +174,11 @@
                                     <tr> 
                                         <td>
                                             <input type="checkbox" id="min_samples" name="min_samples" value="True" checked> 
-                                            <label for="threshold"> Threshold</label>
+                                            <label for="threshold"> Threshold <br> </label>
                                         </td>
                                         <td>
                                             <label for="count"> GO Term Appearance Threshold</label>
-                                            <input type="number" id="count" name="GO Term Appearance Threshold" value=500>
+                                            <input type="number" id="count" name="GO Term Appearance Threshold" value=50>
                                         </td>
                                     </tr>
                                 
@@ -157,9 +187,8 @@
                             </li>
                         </ul>
                     </div>
-                    
                     <div>
-                        <button>Submit Form</button>
+                        <button id="form_submit" , onclick="window.location.href=get_results_path()">Submit Form</button>
                     </div>
                 </form>
             </article>
@@ -175,7 +204,8 @@
 		<address>
 			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
 		</address>
-	</footer>
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/form_handling.js') }}"></script>
 </body>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </html>
