@@ -8,7 +8,8 @@ from dash.dependencies import Input, Output
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 def initialize_dash_app(name, server, analysis_content_dict, url_base_pathname="/results/"):
-    dash_app = dash.Dash(name, server=server, url_base_pathname=url_base_pathname, external_stylesheets=external_stylesheets)
+    dash_app = dash.Dash(name, server=server, routes_pathname_prefix=url_base_pathname, requests_pathname_prefix = "/results/", external_stylesheets=external_stylesheets)
+    print("dash app config", dash_app.config)
     dash_app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.H1(children='Dataset Results (Refresh on download completion)'),
