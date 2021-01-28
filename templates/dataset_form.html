@@ -16,10 +16,8 @@
 		<div id="logo">Gene Ontology Pipeline</div>
 		<nav>  
 			<ul>
-				<li><a href="/">Home</a>
-				<li><a href="https://html-css-js.com/">HTML</a>
-				<li><a href="https://html-css-js.com/css/code/">CSS</a>
-				<li><a href="https://htmlcheatsheet.com/js/">JS</a>
+				<li><a href="/dataset_form">Home</a>
+				<li><a href="/documentation">Documentation</a>
 			</ul>
         </nav>
 	</header>
@@ -30,36 +28,7 @@
 				<p>
                     Select pipeline settings below and then submit to download a formatted dataset.
                 </p>
-
-                <script>
-                      function get_results_path() {
-                        var dataset_form = document.getElementById("dataset_form");
-                        var inputs = document.getElementById("dataset_form").elements;
-                        form_string = ""
-                        // Iterate over the form controls
-                        for (i = 0; i < inputs.length; i++) {
-                            form_string = form_string + inputs[i].outerHTML
-                        }
-                        console.log(form_string);
-                        string_hash = cyrb53(form_string)
-                        console.log("string hash", string_hash)
-                        return '/results/' + string_hash
-                    }
-
-                    const cyrb53 = function(str, seed = 0) {
-                        let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
-                        for (let i = 0, ch; i < str.length; i++) {
-                            ch = str.charCodeAt(i);
-                            h1 = Math.imul(h1 ^ ch, 2654435761);
-                            h2 = Math.imul(h2 ^ ch, 1597334677);
-                        }
-                        h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
-                        h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
-                        return 4294967296 * (2097151 & h2) + (h1>>>0);
-                    };
-                </script>
-
-                <form id="dataset_form", target="_blank", action="/server" method="post"> 
+                <form id="dataset_form"> 
                     <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
                     <div class="checkbox_entry">
                         <ul>
@@ -185,15 +154,15 @@
                         </ul>
                     </div>
                     <div>
-                        <button id="form_submit" , onclick="window.location.href=get_results_path()">Submit Form</button>
+                        <button id="form_submit">Submit Form</button>
                     </div>
                 </form>
             </article>
 		</main>
 		<aside>
 			<!-- <div class="sidebar"><a href="https://html-css-js.com/">ProtVec2GO Paper</a></div> -->
-			<div class="sidebar"><a href="https://html-css-js.com/">Documentation</a></div>
-			<div class="sidebar"><a href="https://html-css-js.com/">Mofrad Lab</a></div>
+			<div class="sidebar"><a href="/documentation">Documentation</a></div>
+			<div class="sidebar"><a href="https://biomechanics.berkeley.edu/">Mofrad Lab</a></div>
 		</aside>
 	</section>
 	<footer>
@@ -202,6 +171,7 @@
 			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
 		</address>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/form_handling.js') }}"></script>
 </body>
 </html>

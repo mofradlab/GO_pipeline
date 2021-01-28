@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://html5-templates.com/" />
+    <title>DatasetForm</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo">Gene Ontology Pipeline</div>
+		<nav>  
+			<ul>
+				<li><a href="/dataset_form">Home</a>
+				<li><a href="/documentation">Documentation</a>
+			</ul>
+        </nav>
+	</header>
+	<section id="pageContent">
+		<main role="main">
+            <article>
+                <h1> Introduction </h1>
+                <p>
+                    The Gene Ontology pipeline attempts to streamline the process of building a dataset for functional annotation. 
+                    Based on the options selected on the dataset_form homepage, a large set of protein annotations will be extracted from 
+                    the <a href=https://www.ebi.ac.uk/GOA>GOA database</a>, filtered, and postprocessed. The resulting tab separated file 
+                    can be used directly for training or evaluating models. 
+                </p>
+                <br>
+                <h1> Benchmark Compatibility</h1>
+                <p>
+                    Training and validation sets returned by our form are designed to avoid conflicts with all datasets from 
+                    "Benchmarking Gene ontology Function Predictions Using Negative Annotations" (Vesztrocy, Dessimoz 2020). 
+
+                    Datasets may also be made compliant with the CAFA Challenge by filtering by the proper maximum date. 
+                </p>
+                <br>
+                <h1> Evidence Codes </h1>
+                <p>
+                    The evidence codes in our form represent possible sources for protein - GO term associations. Select an evidence 
+                    code to add all terms found using that method to your dataset. <br> <br>
+                    
+                    A quick guide to evidence codes can be found here: <a href="http://geneontology.org/docs/guide-go-evidence-codes/"> Evidence Code Guide</a>. 
+                </p>
+                <br>
+                <h1> Propogate Annotations</h1>
+                <p>
+                    Our Gene Ontology dataset maps proteins to the associated GO terms, but only actually stores the most 
+                    specific term associated with a given protein. For instance, we might store an association between the protein Q13219 and 
+                    the GO term "hexose biosynthetic process", but we wouldn't explicitely store an association between Q13219 and the more general 
+                    term "metabolic process". <br> <br>
+
+                    The propogate annotations option augments our dataset with these implicit associations before returning anything. 
+                </p>
+                <br>
+                <h1>Max Date</h1>
+                <p>
+                    Enter a maximum date to exclude recent protein - term associations from your dataset.  
+                </p>
+                <br>
+                <h1> Negative Annotations (Coming Soon)</h1>
+                <p>
+                    Very few negative annotations are explicitely provided by any dataset. However, there are methods for identifying
+                    very probably negative annotations. <br> <br>
+
+                    Our pipeline extracts probably negative samples using the NegGOA process introduced in 
+                    "NegGOA: Negative GO Annotations Selection Using Ontology Structure" (Fu, Wang, Yang, Yu 2020). A subset of these annotations, 
+                    equal in size to the returned positive annotations, may be returned along with the other data. 
+                </p>
+                <br>
+                <h1> </h1>
+                <h1> Download Format</h1>
+                <p>
+                    Your dataset will come in the form of a gzipped tar archive. On a bash terminal or command prompt, it can be unpacked with
+                    the command " tar -xvzf <filepath>". The resulting files correspond to the training, validation, and testing files of the Gene
+                    Ontology domains selected in the form. <br> <br>
+
+                    Each file contains two tab-separated columns, with the first column storing UniProt protein IDs, and the second containing
+                    a comma separated list of the associated Gene Ontology terms. 
+                </p>
+
+            </article>
+		</main>
+		<aside>
+			<!-- <div class="sidebar"><a href="https://html-css-js.com/">ProtVec2GO Paper</a></div> -->
+			<div class="sidebar"><a href="/documentation">Documentation</a></div>
+			<div class="sidebar"><a href="https://biomechanics.berkeley.edu/">Mofrad Lab</a></div>
+		</aside>
+	</section>
+	<footer>
+		<p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<address>
+			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+		</address>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/form_handling.js') }}"></script>
+</body>
+</html>

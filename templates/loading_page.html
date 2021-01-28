@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://html5-templates.com/" />
+    <title>DatasetForm</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+	<header>
+		<div id="logo">Gene Ontology Pipeline</div>
+		<nav>  
+			<ul>
+				<li><a href="/dataset_form">Home</a>
+				<li><a href="https://html-css-js.com/">HTML</a>
+				<li><a href="https://html-css-js.com/css/code/">CSS</a>
+				<li><a href="https://htmlcheatsheet.com/js/">JS</a>
+			</ul>
+        </nav>
+	</header>
+	<section id="pageContent">
+		<main role="main">
+			<article>
+				<p>
+                    Dataset construction may take several minutes. Depending on user activity, you may access your data for a limited time at this URL. 
+                    <br> <br> <br>
+                    <div class="loader" id="loading_icon"></div>
+                    <div id="results_links", hidden>
+                        <a id="results_link", href="/results/"> Dataset Visualization</a>
+                        <a id="download_link", href="/file_download/"> Download Dataset</a>
+                    </div>
+                </p>
+            </article>
+		</main>
+		<aside>
+			<div class="sidebar"><a href="https://html-css-js.com/">Documentation</a></div>
+			<div class="sidebar"><a href="https://biomechanics.berkeley.edu/">Mofrad Lab</a></div>
+		</aside>
+	</section>
+	<footer>
+		<p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<address>
+			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+		</address>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loading_page.js') }}"></script>
+</body>
+</html>

@@ -12,7 +12,7 @@ def initialize_dash_app(name, server, analysis_content_dict, url_base_pathname="
     print("dash app config", dash_app.config)
     dash_app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    html.H1(children='Dataset Results (Refresh on download completion)'),
+    html.H1(children='Dataset Results'),
     dcc.Dropdown(
         id="dropdown",
         options=[{"label": "biological_process", "value": "biological_process"}],

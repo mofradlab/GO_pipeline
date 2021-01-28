@@ -10,6 +10,8 @@ logging.error("test message")
 
 app = Flask(__name__)
 
+#Maps form ids to form data so that they can later be used for dataset construction. 
+form_data = {}
 analysis_content_dict = {}
 dash_app = initialize_dash_app(__name__, app, analysis_content_dict, url_base_pathname="/results/")
 
@@ -25,33 +27,58 @@ def home():
 def dataset_construction():
     return render_template("dataset_form.html")
 
-@app.route("/file_download")
-def file_construction():
-    return send_file("../data/swissprot_goa.gaf.gz")
+@app.route("/file_download/<form_hash>")
+def file_download(form_hash):
+    root_path = os.path.abspath(os.path.dirname(__file__))
+    file_path = "{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash)
+    if(os.path.isfile(file_path)):
+        return send_file(file_path)
+    else:
+        return "File not found. Try resubmitting form."
+
+@app.route("/loading_page/<form_hash>")
+def loading_page(form_hash):
+    return render_template("loading_page.html")
+
+@app.route("/documentation")
+def get_documentation():
+    return render_template("documentation.html")
+
+@app.route('/save_form', methods=['POST'])
+def save_form():
+    if request.method == 'POST':
+        req_dict = request.form.to_dict()
+        print(req_dict)
+        form_data[req_dict["form_content_id"]] = req_dict
+        return "Form recieved."
 
 @app.route('/server', methods=['GET', 'POST'])
 def process_sequence():
     print("recieved post request")
     if request.method == 'POST':
-        req_dict = request.form.to_dict()
+        form_hash = list(request.form.to_dict().keys())[0]
+        print(form_hash)
+        root_path = os.path.abspath(os.path.dirname(__file__))
+        req_dict = form_data[form_hash]
         logging.debug(req_dict)
         print(req_dict)
         print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
 
-
         root_path = os.path.abspath(os.path.dirname(__file__))
         # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
 
+        data_files = os.listdir("{}/../../data".format(root_path))
+        
         pipeline(input_dict, analysis_content_dict)
         
         source_dir = "{}/../../data/generated_datasets/".format(root_path)
-        with tarfile.open("{}/../../data/gene_ontology_data.tar.gz".format(root_path), "w:gz") as tar:
+        with tarfile.open("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
         #config_dict = parse_server_multidict(request.form)
         #return str(config_dict)
-        return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
+        return "Form Processed"
 
 
 if __name__ == '__main__':

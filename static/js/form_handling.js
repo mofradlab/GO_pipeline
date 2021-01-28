@@ -1,34 +1,52 @@
-document.getElementById('dataset_form').onsubmit = function() {
+document.getElementById('dataset_form').onsubmit = function(event) {
+    event.preventDefault();
     var form_content_id = document.getElementById("form_content_id");
-    console.log(form_content_id.value);
-    
-    console.log("form content id", form_content_id.value);
     var dataset_form = document.getElementById("dataset_form");
-    var inputs = document.getElementById("dataset_form").elements;
-    form_string = ""
+    //Construct form hash code and add to form. 
+    var inputs = dataset_form.elements;
+    form_string = "";
     // Iterate over the form controls
     for (i = 0; i < inputs.length; i++) {
-        form_string = form_string + inputs[i].outerHTML
+        form_string = form_string + inputs[i].outerHTML;
     }
-    console.log(form_string);
-    string_hash = cyrb53(form_string)
-    console.log("string hash", string_hash)
+    string_hash = cyrb53(form_string);
+    console.log("form hash", string_hash);
     form_content_id.value = string_hash;
+    var form_entries = Object.fromEntries(new FormData(dataset_form));
+    console.log("form entries", form_entries); 
+
+    $.post("/save_form", form_entries, function(data, status){
+        window.open("/loading_page/" + string_hash, '_blank');
+      });
+    return false; 
 };
 
-  function get_results_path() {
+
+function get_results_path() {
     var dataset_form = document.getElementById("dataset_form");
-    var inputs = document.getElementById("dataset_form").elements;
-    form_string = ""
+    var inputs = dataset_form.elements;
+    form_string = "";
     // Iterate over the form controls
     for (i = 0; i < inputs.length; i++) {
-        form_string = form_string + inputs[i].outerHTML
+        form_string = form_string + inputs[i].outerHTML;
     }
     console.log(form_string);
-    string_hash = cyrb53(form_string)
-    console.log("string hash", string_hash)
-    return '/results/' + string_hash
+    string_hash = cyrb53(form_string);
+    console.log("string hash", string_hash);
+    return '/results/' + string_hash;
 }
+
+const cyrb53 = function(str, seed = 0) {
+    let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (let i = 0, ch; i < str.length; i++) {
+        ch = str.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+    return 4294967296 * (2097151 & h2) + (h1>>>0);
+};
 
 // document.getElementById("form_submit").addEventListener("click", generateFormCode);
 
