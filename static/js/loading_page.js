@@ -10,10 +10,10 @@ function getDataset(){
 
     console.log("sending post request for form", form_hash);
     
-    $.post("/server", form_hash, function() {
+    $.post("/~llp/flask/server", form_hash, function() {
         console.log($("#results_link"));
-        $("#results_link")[0].href = "/results/" + form_hash; 
-        $("#download_link")[0].href = "/file_download/" + form_hash; 
+        $("#results_link")[0].href = "/~llp/flask/results/" + form_hash; 
+        $("#download_link")[0].href = "/~llp/flask/file_download/" + form_hash; 
         console.log($("#results_links")); 
         $("#results_links").removeAttr("hidden"); 
         $(".loader").hide();

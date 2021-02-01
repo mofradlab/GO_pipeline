@@ -15,8 +15,8 @@ document.getElementById('dataset_form').onsubmit = function(event) {
     var form_entries = Object.fromEntries(new FormData(dataset_form));
     console.log("form entries", form_entries); 
 
-    $.post("/save_form", form_entries, function(data, status){
-        window.open("/loading_page/" + string_hash, '_blank');
+    $.post("/~llp/flask/save_form", form_entries, function(data, status){
+        window.open("/~llp/flask/loading_page/" + string_hash, '_blank');
       });
     return false; 
 };
@@ -33,7 +33,7 @@ function get_results_path() {
     console.log(form_string);
     string_hash = cyrb53(form_string);
     console.log("string hash", string_hash);
-    return '/results/' + string_hash;
+    return '/~llp/flask/results/' + string_hash;
 }
 
 const cyrb53 = function(str, seed = 0) {
