@@ -16,5 +16,6 @@ function getDataset(){
         $("#download_link")[0].href = "/file_download/" + form_hash; 
         console.log($("#results_links")); 
         $("#results_links").removeAttr("hidden"); 
+        $(".loader").hide();
       });
 }

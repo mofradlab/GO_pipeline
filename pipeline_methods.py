@@ -3,6 +3,9 @@ from pipeline_app.filter_tools import filter_dict, godag, propogate_annotations,
 import pandas as pd
 import os
 import logging
+import pickle
+import json
+
 root_path = os.path.abspath(os.path.dirname(__file__))
 
 logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
@@ -39,6 +42,7 @@ def construct_prot_dict(req_dict):
 
     namespaces = ["biological_process", "molecular_function", "cellular_component"]
     input_dict["namespaces"] = [namespace for namespace in namespaces if namespace in req_dict]
+    input_dict["include_negative_annotations"] = "include_estimated_negative_annotations" in req_dict
 
     split_data = {}
     split_data["do_split"] = True
@@ -47,22 +51,21 @@ def construct_prot_dict(req_dict):
     input_dict["split_data"] = split_data
     return input_dict
 
-
-
 #Parses an input dictionary to generate several outputs in the generated_datasets directory. 
 def pipeline(input_dict, analysis_content_dict):
     analysis_content = {}
     logging.debug(input_dict)
+    save_dir = input_dict["save_dir"]
     filter_settings = input_dict["filter_settings"]
     codes = filter_settings["evidence_codes"]
     min_date = 0 if not "min_date" in filter_settings else filter_settings["min_date"]
     max_date = 1e10 if not "max_date" in filter_settings else filter_settings["max_date"]
     
-    logging.debug("loading proteins") 
+    logging.debug("loading proteins")
 
     prot_dict = load_protein_annotations(codes, min_date=min_date, max_date=max_date) #Read in protein annotations made by specific codes. 
-    prot_dict = filter_dict(prot_dict, godag)    
-    logging.debug("propogating terms")    
+    prot_dict = filter_dict(prot_dict, godag)
+    logging.debug("propogating terms")
     #Read in terms
     term_list = [term for term in godag]
     logging.debug(sum(len(x) for x in prot_dict.values()))
@@ -91,6 +94,10 @@ def pipeline(input_dict, analysis_content_dict):
         
         print("filtering namespace:", namespace)
         print("namespace_term_list length", len(namespace_term_list))
+        json_path = "{}/../../data/generated_datasets/{namespace}_terms.json".format(root_path, namespace)
+        with open(json_path, "w") as f:
+            json.dump(namespace_term_list, f)
+
         print("loading split partition")
         split_data = input_dict["split_data"]
         if(split_data["do_split"]):
@@ -119,3 +126,8 @@ def pipeline(input_dict, analysis_content_dict):
             print("saving to {}".format(path))
             construct_tsv(path, prot_dict, prot_ids, set(namespace_term_list))
     analysis_content_dict[input_dict["form_content_id"]] = analysis_content
+    dash_cache_path = "{}/../../data/dash_cache/{}.pkl".format(root_path, input_dict["form_content_id"])
+    print("persisting dash info in {}".format(dash_cache_path))
+    with open(dash_cache_path, "wb") as f:
+        pickle.dump(analysis_content, f)
+

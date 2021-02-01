@@ -9,6 +9,7 @@ logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.
 logging.error("test message")
 
 app = Flask(__name__)
+root_path = os.path.abspath(os.path.dirname(__file__)) #Used for file management because cwd is unknown. 
 
 #Maps form ids to form data so that they can later be used for dataset construction. 
 form_data = {}
@@ -29,7 +30,6 @@ def dataset_construction():
 
 @app.route("/file_download/<form_hash>")
 def file_download(form_hash):
-    root_path = os.path.abspath(os.path.dirname(__file__))
     file_path = "{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash)
     if(os.path.isfile(file_path)):
         return send_file(file_path)
@@ -52,13 +52,21 @@ def save_form():
         form_data[req_dict["form_content_id"]] = req_dict
         return "Form recieved."
 
+
+
 @app.route('/server', methods=['GET', 'POST'])
 def process_sequence():
     print("recieved post request")
+    print("root path", root_path)
     if request.method == 'POST':
         form_hash = list(request.form.to_dict().keys())[0]
         print(form_hash)
-        root_path = os.path.abspath(os.path.dirname(__file__))
+
+        
+        if(os.path.isfile("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash))):
+            print("File for {} already generated".format(form_hash))
+            return "Form Processed"
+
         req_dict = form_data[form_hash]
         logging.debug(req_dict)
         print(req_dict)
@@ -66,20 +74,48 @@ def process_sequence():
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
 
-        root_path = os.path.abspath(os.path.dirname(__file__))
-        # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
+        return "Cutting process short for now"
 
-        data_files = os.listdir("{}/../../data".format(root_path))
-        
+        # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
         pipeline(input_dict, analysis_content_dict)
         
         source_dir = "{}/../../data/generated_datasets/".format(root_path)
         with tarfile.open("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
-        #config_dict = parse_server_multidict(request.form)
-        #return str(config_dict)
+
+        filter_LRU_archive_files("{}/../../data".format(root_path), 1.5e5, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
+        filter_LRU_archive_files("{}/../../data/dash_cache".format(root_path), 1.5e5)
         return "Form Processed"
 
+#Archive files should be deleted, starting with the oldest, when they take up more than 2 GB of space. 
+def filter_LRU_archive_files(file_dir, max_disk_usage, file_identifier=None):
+    print("filtering {} archives for files containing {}".format(file_dir, file_identifier))
+    if(file_identifier is None):
+        file_identifier = ""
+    files = [x for x in os.listdir(file_dir) if file_identifier in x]
+    print("current files", files)
+    file_access_times = {}
+    file_sizes = {}
+    total_bytes = 0
+    for f_name in files:
+        file_stats = os.stat(os.path.join(file_dir, f_name))
+        print(file_stats)
+        total_bytes += file_stats.st_size
+        file_sizes[f_name] = file_stats.st_size
+        file_access_times[f_name] = file_stats.st_atime
+
+    print("total bytes", total_bytes)
+
+    file_access_time_pairs = list(zip(file_access_times.values(), file_access_times.keys()))
+    file_access_time_pairs.sort()
+
+    for access_time, f_name in file_access_time_pairs:
+        print("remaining bytes", total_bytes)
+        if(total_bytes < max_disk_usage):
+            break
+        print("removing file:", f_name)
+        os.remove(os.path.join(file_dir, f_name))
+        total_bytes -= file_sizes[f_name]
 
 if __name__ == '__main__':
     app.run()
