@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    getDataset();
+	setTimeout(function(){getDataset();}, 1500);
 });
 
 function getDataset(){

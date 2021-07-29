@@ -5,9 +5,9 @@ import logging
 import os
 from pipeline_app.dash_app import initialize_dash_app
 
-logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
-logging.error("test message")
-
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + '/app.log'), level=logging.DEBUG)
+logging.error("test message for app startup")
+print("starting app")
 app = Flask(__name__)
 root_path = os.path.abspath(os.path.dirname(__file__)) #Used for file management because cwd is unknown. 
 
@@ -48,6 +48,8 @@ def get_documentation():
 def save_form():
     if request.method == 'POST':
         req_dict = request.form.to_dict()
+        logging.error(req_dict)
+        logging.error("storing form under key {}".format(req_dict["form_content_id"]))
         print(req_dict)
         form_data[req_dict["form_content_id"]] = req_dict
         return "Form recieved."
@@ -74,8 +76,6 @@ def process_sequence():
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
 
-        return "Cutting process short for now"
-
         # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
         pipeline(input_dict, analysis_content_dict)
         
@@ -83,8 +83,8 @@ def process_sequence():
         with tarfile.open("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
 
-        filter_LRU_archive_files("{}/../../data".format(root_path), 1.5e5, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
-        filter_LRU_archive_files("{}/../../data/dash_cache".format(root_path), 1.5e5)
+        filter_LRU_archive_files("{}/../../data".format(root_path), 2e9, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
+        filter_LRU_archive_files("{}/../../data/dash_cache".format(root_path), 2e8)
         return "Form Processed"
 
 #Archive files should be deleted, starting with the oldest, when they take up more than 2 GB of space. 

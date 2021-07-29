@@ -8,7 +8,7 @@ import json
 
 root_path = os.path.abspath(os.path.dirname(__file__))
 
-logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + 'app.log'), level=logging.DEBUG)
+logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + '/app.log'), level=logging.DEBUG)
 
 def construct_tsv(path, prot_dict, prot_ids, term_set):
     print(path, len(prot_dict), len(prot_ids), len(term_set))
@@ -55,7 +55,6 @@ def construct_prot_dict(req_dict):
 def pipeline(input_dict, analysis_content_dict):
     analysis_content = {}
     logging.debug(input_dict)
-    save_dir = input_dict["save_dir"]
     filter_settings = input_dict["filter_settings"]
     codes = filter_settings["evidence_codes"]
     min_date = 0 if not "min_date" in filter_settings else filter_settings["min_date"]
@@ -94,7 +93,7 @@ def pipeline(input_dict, analysis_content_dict):
         
         print("filtering namespace:", namespace)
         print("namespace_term_list length", len(namespace_term_list))
-        json_path = "{}/../../data/generated_datasets/{namespace}_terms.json".format(root_path, namespace)
+        json_path = "{}/../../data/generated_datasets/{}_terms.json".format(root_path, namespace)
         with open(json_path, "w") as f:
             json.dump(namespace_term_list, f)
 
@@ -127,7 +126,7 @@ def pipeline(input_dict, analysis_content_dict):
             construct_tsv(path, prot_dict, prot_ids, set(namespace_term_list))
     analysis_content_dict[input_dict["form_content_id"]] = analysis_content
     dash_cache_path = "{}/../../data/dash_cache/{}.pkl".format(root_path, input_dict["form_content_id"])
-    print("persisting dash info in {}".format(dash_cache_path))
+    logging.error("persisting dash info in {}".format(dash_cache_path))
     with open(dash_cache_path, "wb") as f:
         pickle.dump(analysis_content, f)
 
