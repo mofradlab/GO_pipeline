@@ -50,11 +50,6 @@ const cyrb53 = function(str, seed = 0) {
 
 // document.getElementById("form_submit").addEventListener("click", generateFormCode);
 
-
-// function generateFormCode() {
-
-// }
-
 // document.getElementById("sequence_submit_button").addEventListener("click", function() {
 //     var xhttp = new XMLHttpRequest();
 //     document.getElementById("sequence_submit_button").value = "Sent Request";
