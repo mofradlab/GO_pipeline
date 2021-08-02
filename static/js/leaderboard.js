@@ -12,7 +12,7 @@ window.addEventListener( "load", function () {
         event.srcElement.style.fontWeight = weight; 
     }
     function change_table_col(column) {
-        table = document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
+        var table = document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
         col_cell1 = table.rows[0].getElementsByClassName(table_params["sort_col"])[0];
         col_cell1.innerHTML = col_cell1.innerHTML.split(/[\u25B2\u25BC]/i)[0];
         col_cell2 = table.rows[0].getElementsByClassName(column)[0];
@@ -33,7 +33,8 @@ window.addEventListener( "load", function () {
     function update_table(update_func, event) {
         update_func(); 
         //console.log("new table params", table_params); 
-        $.post("/leaderboard_table", table_params, function(data, status){
+        var table_url = document.getElementById("leaderboard_table_link").getAttribute("href"); 
+        $.post(table_url, table_params, function(data, status){
                 //console.log(data); 
                 table =document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
                 updated_table = $.parseHTML(data)[0].getElementsByTagName("TABLE")[0];

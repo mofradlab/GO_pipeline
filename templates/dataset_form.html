@@ -13,15 +13,21 @@
 </head>
 
 <body>
-	<header>
-		<div id="logo">Gene Ontology Pipeline</div>
-		<nav>  
-			<ul>
-				<li><a href="/~llp/flask/dataset_form">Home</a>
-				<li><a href="/~llp/flask/documentation">Documentation</a>
-			</ul>
+    <header>
+        <div id="logo">GO Pipeline </div>
+        <!-- <img src="{{url_for('static', filename='images/cal_logo.png')}}" alt="Cal Logo" 
+            style="width:80px;height:80px; float:top;"> -->
+        <nav>  
+            <a hidden id="leaderboard_table_link" href="{{url_for('get_table')}}"></a>
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('get_documentation')}}">Documentation</a></li>
+                <li><a href="{{url_for('dataset_construction')}}">Download Dataset</a></li>
+                <li><a href="{{url_for('send_upload_form')}}">Submit Predictions</a></li>
+                <li><a href="{{url_for('leaderboard')}}">Leaderboard</a></li>
+            </ul>
         </nav>
-	</header>
+    </header>
 	<section id="pageContent">
 		<main role="main">
 			<article>
@@ -30,6 +36,8 @@
                     Select pipeline settings below and then submit to download a formatted dataset.
                 </p>
                 <form id="dataset_form"> 
+                    <a hidden id="form_submission_link" href="{{url_for('save_form')}}"></a>
+                    <a hidden id="loading_page_link" href="{{url_for('loading_page', form_hash='')}}"></a>
                     <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
                     <div class="checkbox_entry">
                         <ul>

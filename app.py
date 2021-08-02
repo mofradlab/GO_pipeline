@@ -1,5 +1,6 @@
 from collections import defaultdict
 from flask import Flask, render_template, request, send_file
+from flask.helpers import send_from_directory
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
@@ -104,7 +105,7 @@ def leaderboard():
 def file_download(form_hash):
     file_path = "{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash)
     if(os.path.isfile(file_path)):
-        return send_file(file_path)
+        return send_file(file_path, as_attachment=True, attachment_filename="GO_benchmark_data.tar.gz")
     else:
         return "File not found. Try resubmitting form."
 
