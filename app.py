@@ -1,6 +1,6 @@
 from collections import defaultdict
 from flask import Flask, render_template, request, send_file
-from flask.helpers import send_from_directory
+from flask.helpers import send_from_directory, url_for
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
@@ -31,13 +31,21 @@ def allowed_file(filename):
 #Maps form ids to form data so that they can later be used for dataset construction. 
 form_data = {}
 analysis_content_dict = {}
-dash_app = initialize_dash_app(__name__, app, analysis_content_dict, url_base_pathname="/results/")
 
 logging.error("made imports and initialized dash app")
 
 @app.route('/')
 def default():
     return "hello world"
+
+
+with app.test_request_context():
+    requests_pathname_prefix = url_for('default') + 'results/'
+
+dash_app = initialize_dash_app(__name__, app, analysis_content_dict, 
+                    routes_pathname_prefix="/results/", 
+                    requests_pathname_prefix=requests_pathname_prefix)
+
 
 @app.route("/home")
 def home():
