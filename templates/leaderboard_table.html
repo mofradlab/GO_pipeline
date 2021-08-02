@@ -1,0 +1,14 @@
+<div id="leaderboard_table">
+    <table>
+        {% for header, col_name in zip(headings, col_names) %}
+        <th class={{col_name}}>{{ header }}</th>
+        {% endfor %}
+        {% for row in data %}
+        <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>

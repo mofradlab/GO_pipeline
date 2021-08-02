@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>GO Pipeline</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div id="logo">Leaderboard</div>
+        <nav>  
+            <a hidden id="leaderboard_table_link" href="{{url_for('get_table')}}"></a>
+            <ul>
+                <li><a href="/flask/home">Home</a></li>
+                <li><a href="{{url_for('dataset_construction')}}">Dataset Form</a></li>
+                <li><a href="{{url_for('send_upload_form')}}">Submission Form</a></li>
+                <img src="{{url_for('static', filename='images/cal_logo.png')}}" alt="Cal Logo" 
+                    style="width:80px;height:80px; float:right;">
+            </ul>
+        </nav>
+    </header>
+    <section id="pageContent">
+        <main role="main">
+            <h4>
+                Leaderboard Selection
+            </h4>
+            <div class="url_selectors">
+                <select name="namespace" id="namespace">
+                    <option value="biological_process">Biological Process</option>
+                    <option value="molecular_function">Molecular Function</option>
+                    <option value="cellular_component">Cellular Component</option>
+                </select>
+                <select name="testing_set" id="testing_set">
+                    <option value="cluster50">Cluster50</option>
+                    <option value="random">Random</option>
+                </select>
+                <select name="testing_quality" id="testing_quality">
+                    <option value="exp">Experimental Only</option>
+                    <option value="non_IEA">Non-Electronic</option>
+                </select>
+                <button type="button" id="lb_submit">Change Leaderboard</button>
+            </div>
+            <article>
+                <!-- 
+                    Sortable leaderboard for uploaded submissions. 
+                    <Testing Set>{Cluster50, Random}
+                    | Organization | F1 Score | AUC | Info. Weighted | Recall Metric | Model Description | 
+
+                -->
+                <div id="leaderboard_table">
+                    <table>
+                        {% for header, col_name in zip(headings, col_names) %}
+                        <th class={{col_name}}>{{ header }}</th>
+                        {% endfor %}
+                        {% for row in data %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </article>
+        </main>
+
+        <aside>
+            <div class="sidebar"><a href="{{url_for('send_upload_form')}}">Submit Predictions</a></div>
+            <div class="sidebar"><a href="https://html-css-js.com/">Documentation</a></div>
+            <div class="sidebar">
+                <a href="https://biomechanics.berkeley.edu/">
+                    Mofrad Lab
+                    <img src="{{url_for('static', filename='images/mofradlab_icon.png')}}" alt="Mofrad Lab Icon" 
+                    style="width:200px;height:100px;">
+                </a>
+                
+            </div>
+        </aside>
+    </section>
+    <footer>
+        <p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+        <address>
+            Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+        </address>
+    </footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+</html>

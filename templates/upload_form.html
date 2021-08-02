@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>GO Pipeline</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div id="logo">Leaderboard</div>
+        <nav>  
+            <ul>
+                <li><a href="/flask/home">Home</a>
+                <li><a href="/dataset_form">Dataset Form</a>
+                <li><a href="https://html-css-js.com/">HTML</a>
+            </ul>
+        </nav>
+    </header>
+    <section id="pageContent">
+        <main role="main">
+            <article>
+                <!--
+                    Upload Form
+                    <Training Set>{cluster50, random}
+                    <Testing Set>{cluster50, random, neg. benchmark}
+                    <File Format>{multi-entry, single-entry}
+                    <File> 
+                -->
+
+                <!--
+                    Loading State
+                    - Replace form with loading icon. 
+                    - Javascript periodically queries server for results. 
+                -->
+                <!--
+                    Query Results
+                    Success: Leaderboard entry + leaderboard status
+                    Failure: Timeout / incorrect file format
+                -->
+            </article>
+            <article>
+                <h1>Upload Predictions</h1>
+                <p>
+                    Format your model predictions and submit them to the category leaderboard. 
+                </p>
+                <form id="upload_form"> 
+                    <div class="checkbox_entry">
+                        <h6>Submission Info</h6>
+                        <div id="model_info">
+                            <label for="model_name">Model Name</label>
+                            <input type="text" id="model_name" name="model_name"><br>
+                            <label for="group">Group</label>
+                            <input type="text" id="group" name="group"><br><br>
+                            <div id="centered_div">
+                                <h6>Model Description</h6>
+                            </div>
+                             <br>
+                            <textarea rows="10" cols="30" id="model_description" name="model_description"> </textarea> <br>
+                        </div>
+                    </div>
+                    <div class="checkbox_entry">
+                        <h6>Select Namespaces</h6>
+                        <ul>
+                            <li>
+                                <input type="radio" id="biological_process" name="namespace" value="biological_process" checked> 
+                                <label for="biological_process"> Biological Process</label>
+                                <input type="radio" id="molecular_function" name="namespace" value="molecular_function"> 
+                                <label for="molecular_function"> Molecular Function</label>
+                                <input type="radio" id="cellular_component" name="namespace" value="cellular_component"> 
+                                <label for="cellular_component"> Cellular Component</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <h6>Select Training/Testing Type</h6>
+                        <ul>
+                            <li>
+                                <input type="radio" id="cluster50" name="testing_set" value="cluster50"> 
+                                <label for="cluster50"> Cluster 50</label>
+                                <input type="radio" id="random" name="testing_set" value="random"> 
+                                <label for="random"> Random</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <h6>Select Testing Annotation Quality</h6>
+                        <ul>
+                            <li>
+                                <input type="radio" id="exp" name="testing_quality" value="exp"> 
+                                <label for="cluster50"> Experimental Only</label>
+                                <input type="radio" id="non_IEA" name="testing_quality" value="non_IEA"> 
+                                <label for="random"> Non-Electronic </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <h6>Select File Type</h6>
+                        <ul>
+                            <li>
+                                <input type="radio" id="multi_entry" name="file_type" value="multi_entry"> 
+                                <label for="multi_entry"> Single Protein : All Annotations</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="single_entry" name="file_type" value="single_entry"> 
+                                <label for="single_entry"> Single Protein : Single Annotation</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="checkbox_entry">
+                        <h6> File Selection</h6>
+                        <input type="file" id="submission_file" name="submission_file">
+                    </div>
+                    <div>
+                        <button id="form_submit">Submit Form</button>
+                    </div>
+                </form>
+            </article>
+            <div class="loader" id="loading_icon" hidden></div>
+            <div id="results", hidden></div>
+        </main>
+        <aside>
+            <div class="sidebar"><a href="/leaderboard/molecular_function/cluster50/exp">View Leaderboard</a></div>
+            <div class="sidebar"><a href="https://html-css-js.com/">Documentation</a></div>
+            <div class="sidebar"><a href="https://biomechanics.berkeley.edu/">Mofrad Lab</a></div>
+        </aside>
+    </section>
+    <footer>
+        <p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+        <address>
+            Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+        </address>
+    </footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/upload_form.js') }}"></script>
+</html>

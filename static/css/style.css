@@ -11,7 +11,6 @@ ins{background-color:#ff9;color:#000;text-decoration:none}
 mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
 del{text-decoration:line-through}
 abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
-table{border-collapse:collapse;border-spacing:0}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
 input,select{vertical-align:middle}
 
@@ -24,6 +23,37 @@ header {
     max-width: 940px;
     margin: auto;
 }
+
+#leaderboard_table {
+    padding-top: 20px;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:5;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+}
+
+th {
+    border: 2px rgb(0, 0, 0);
+    background-color: #13a5df;
+    padding:0 5px 0 5px;
+}
+td {
+    text-align: right; 
+    padding:0 5px 0 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #b1f3f0;
+  }
+
+tr:nth-child(even) {
+    background-color: rgb(74, 192, 201);
+  }
+tr:hover {background-color:#0e7da8;}
+
 nav {
     display: inline-block;
 }
@@ -77,11 +107,14 @@ article h2 {
     font-weight: normal;
     margin-bottom: 12px;
 }
-article p {
-	
+
+#scrollable_table {
+    overflow-y:auto;
+    max-height: 400px;
 }
-main section {
-	
+
+#scrollable_table table {
+    border: 2px rgb(0, 0, 0);
 }
 
 .sidebar {
@@ -94,7 +127,7 @@ main section {
   }
 
 .checkbox_entry {
-    background-color: rgb(196, 183, 112);
+    background-color: rgb(85, 178, 194);
     display:block;
     color: black;
     border: 2px solid rgb(71, 40, 19);
@@ -103,7 +136,20 @@ main section {
     text-align: center;
 }
 
+#model_info {
+    background-color: rgb(85, 178, 194);
+    display:block;
+    color: black;
+    margin: 20px;
+    margin-right: 125px;
+    padding: 0px;
+    text-align: right;
+}
 
+#centered_div {
+    text-align: center; 
+    margin-left: 120px;
+}
 footer {
 	background: #AEC6CF;
 	max-width: 1000px;

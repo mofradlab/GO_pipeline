@@ -1,4 +1,5 @@
 import pandas as pd
+from scipy.sparse import lil_matrix, dok_matrix, csr_matrix
 import numpy as np
 from collections import defaultdict
 import os
@@ -108,3 +109,41 @@ def load_protein_annotations(annotation_codes, min_date=0, max_date=1e10):
         for tup in zdf.itertuples():
             annot_dict[tup[2]].add(tup[5])
     return annot_dict
+
+#Data management methods and classes
+def load_GO_tsv_file(path):
+    prot_dict = {}
+    df_iter = pd.read_csv(path, dtype=str,
+                          sep='\t',
+                          header=0,
+                          chunksize=int(1e4))    
+    for zdf in df_iter:
+        for tup in zdf.itertuples():
+            prot_id = tup[1]
+            annotations = tup[2]
+            prot_dict[prot_id] = list(annotations.split(", ")) if isinstance(annotations, str) else []
+    return prot_dict
+
+#Convert a protein annotation dict to a sparse matrix. 
+def convert_to_sparse_matrix(protein_annotation_dict, term_list, prot_id_list):
+    term_col_mappings = {term:i for i, term in enumerate(term_list)}
+    prot_row_mappings = {prot:i for i, prot in enumerate(prot_id_list)}
+
+    labels = lil_matrix((len(prot_id_list), len(term_list)), dtype=np.int8)
+
+    for place, prot_id in enumerate(prot_id_list):
+        for go_id in protein_annotation_dict[prot_id]:
+            if(go_id in term_col_mappings):
+                labels[place, term_col_mappings[go_id]] = 1
+    labels = labels.tocsr()
+    return labels
+
+def read_sparse(fn, prot_rows, GO_cols):
+    prm = {prot:i for i, prot in enumerate(prot_rows)}
+    tcm = {term:i for i, term in enumerate(GO_cols)}
+    sparse_probs = dok_matrix((len(prot_rows), len(GO_cols)))
+    df = pd.read_csv(fn)
+    for (i, prot, go_id, prob) in df.itertuples():
+        if(prot in prm and go_id in tcm):
+            sparse_probs[prm[prot], tcm[go_id]] = prob
+    return csr_matrix(sparse_probs)
