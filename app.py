@@ -46,10 +46,13 @@ dash_app = initialize_dash_app(__name__, app, analysis_content_dict,
                     routes_pathname_prefix="/results/", 
                     requests_pathname_prefix=requests_pathname_prefix)
 
-
 @app.route("/home")
 def home():
     return render_template("home.html")
+
+@app.route('/go_header')
+def go_header():
+    return render_template('header.html')
 
 @app.route("/dataset_form")
 def dataset_construction():

@@ -1,0 +1,14 @@
+<header id="go_header">
+    <img class="logo" src="{{url_for('static', filename='images/cal_logo.png')}}" alt="Cal Logo">
+    <!-- <div id="logo">GO Pipeline </div> -->
+    <h2 class="title" style="color: #ffffff;">GO Pipeline</h2>
+    <nav class="nav_bar">  
+        <a hidden id="leaderboard_table_link" href="{{url_for('get_table')}}"></a>
+        <ul>
+            <li><a href="{{url_for('get_documentation')}}">Documentation</a></li>
+            <li><a href="{{url_for('dataset_construction')}}">Download Dataset</a></li>
+            <li><a href="{{url_for('send_upload_form')}}">Submit Predictions</a></li>
+            <li><a href="{{url_for('leaderboard')}}">Leaderboard</a></li>
+        </ul>
+    </nav>
+</header>

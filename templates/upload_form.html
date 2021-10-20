@@ -11,21 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <div id="logo">GO Pipeline </div>
-        <!-- <img src="{{url_for('static', filename='images/cal_logo.png')}}" alt="Cal Logo" 
-            style="width:80px;height:80px; float:top;"> -->
-        <nav>  
-            <a hidden id="leaderboard_table_link" href="{{url_for('get_table')}}"></a>
-            <ul>
-                <li><a href="{{url_for('home')}}">Home</a></li>
-                <li><a href="{{url_for('get_documentation')}}">Documentation</a></li>
-                <li><a href="{{url_for('dataset_construction')}}">Download Dataset</a></li>
-                <li><a href="{{url_for('send_upload_form')}}">Submit Predictions</a></li>
-                <li><a href="{{url_for('leaderboard')}}">Leaderboard</a></li>
-            </ul>
-        </nav>
-    </header>
+    {% include "header.html" %}
     <section id="pageContent">
         <main role="main">
             <article>
@@ -51,25 +37,25 @@
             <article>
                 <h1>Upload Predictions</h1>
                 <p>
-                    Format your model predictions and submit them to the category leaderboard. 
+                    Format your model predictions and submit them to the leaderboard for their catagory. 
                 </p>
                 <form id="upload_form"> 
                     <div class="checkbox_entry">
-                        <h6>Submission Info</h6>
+                        <h2>Submission Info</h2>
                         <div id="model_info">
                             <label for="model_name">Model Name</label>
                             <input type="text" id="model_name" name="model_name"><br>
                             <label for="group">Group</label>
                             <input type="text" id="group" name="group"><br><br>
                             <div id="centered_div">
-                                <h6>Model Description</h6>
+                                <h2>Model Description</h2>
                             </div>
                              <br>
                             <textarea rows="10" cols="30" id="model_description" name="model_description"> </textarea> <br>
                         </div>
                     </div>
                     <div class="checkbox_entry">
-                        <h6>Select Namespaces</h6>
+                        <h2>Select Namespaces</h2>
                         <ul>
                             <li>
                                 <input type="radio" id="biological_process" name="namespace" value="biological_process" checked> 
@@ -82,7 +68,7 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
-                        <h6>Select Training/Testing Type</h6>
+                        <h2>Select Training/Testing Type</h2>
                         <ul>
                             <li>
                                 <input type="radio" id="cluster50" name="testing_set" value="cluster50"> 
@@ -93,7 +79,7 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
-                        <h6>Select Testing Annotation Quality</h6>
+                        <h2>Select Testing Annotation Quality</h2>
                         <ul>
                             <li>
                                 <input type="radio" id="exp" name="testing_quality" value="exp"> 
@@ -104,7 +90,7 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
-                        <h6>Select File Type</h6>
+                        <h2>Select File Type</h2>
                         <ul>
                             <li>
                                 <input type="radio" id="multi_entry" name="file_type" value="multi_entry"> 
@@ -117,7 +103,7 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
-                        <h6> File Selection</h6>
+                        <h2> File Selection</h2>
                         <input type="file" id="submission_file" name="submission_file">
                     </div>
                     <div>
