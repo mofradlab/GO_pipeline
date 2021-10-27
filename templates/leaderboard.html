@@ -54,23 +54,7 @@
                 </div>
             </article>
         </main>
-        <aside>
-            <div class="sidebar">
-                <a href="{{url_for('/results/')}}">
-                    Model Visualizations
-                    <img src="{{url_for('static', filename='images/model_viz_clip.png')}}" alt="Graphs Comparing GO Models." 
-                    style="width:200px;height:100px;padding:5px;">
-                </a>
-            </div>
-            <div class="sidebar">
-                <a href="https://biomechanics.berkeley.edu/">
-                    Mofrad Lab
-                    <img src="{{url_for('static', filename='images/mofradlab_icon.png')}}" alt="Mofrad Lab Icon" 
-                    style="width:200px;height:100px;padding:5px;">
-                </a>
-                
-            </div>
-        </aside>
+        {%include "sidebar.html" %}
     </section>
     <footer>
         <address>
