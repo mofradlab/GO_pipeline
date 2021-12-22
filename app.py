@@ -6,8 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 from pipeline_app.app_gen import app, db, root_path, Submission, SubmissionMetrics, SubmissionDescription
 from pipeline_app.pipeline_methods import construct_prot_dict, pipeline
-from pipeline_app.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
-from pipeline_app.eval_tools import threshold_stats
+from go_bench.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
+from go_bench.metrics import threshold_stats
 from pipeline_app.upload_methods import probs_to_string
 from pipeline_app.dash_app import initialize_dash_app
 import tarfile
@@ -57,6 +57,10 @@ def go_header():
 @app.route("/dataset_form")
 def dataset_construction():
     return render_template("dataset_form.html")
+
+@app.route("/dataset_links")
+def dataset_links():
+    return render_template("dataset_links.html")
 
 @app.route("/upload_form")
 def send_upload_form():
@@ -154,12 +158,13 @@ def receive_upload_form():
                 model_description = ""
             submission_time = time.time()
         except:
+            print("missing fields")
             return "[Error] Make sure all required fields are filled in."
         
         if 'submission_file' not in request.files:
             return "[Error] Submission File not included."
         file = request.files['submission_file']
-
+        print(model, group, namespace, testing_set, testing_quality)
         if not file or file.filename == '':
             print("filename error")
             return "[Error] No file selected."
@@ -192,6 +197,7 @@ def receive_upload_form():
                 test_ia[i] = go_ia_dict[id_int]
 
         precs, recs, f_scores, rms, mis, rus, s_vals = threshold_stats(testing_matrix, prediction_matrix, test_ia)
+        print(max(f_scores), "max f1")
         #Load predictions into sparse matrix with read_sparse. Add some helpful error messages for users. 
         #Load testing set into sparse matrix. 
         #Generate precision-recall statistics and save in SQL database. 
@@ -228,13 +234,14 @@ def process_sequence():
             return "Form Processed"
 
         req_dict = form_data[form_hash]
-        logging.debug(req_dict)
+        logging.error(req_dict)
         print(req_dict)
         print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
 
         # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
+
         pipeline(input_dict, analysis_content_dict)
         
         source_dir = "{}/../../data/generated_datasets/".format(root_path)

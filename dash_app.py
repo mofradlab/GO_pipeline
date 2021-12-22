@@ -29,13 +29,13 @@ model_results_layout = html.Div([
     html.Div([
         dcc.Dropdown(
         id="model-namespace", placeholder="Namespace", 
-        options=[{"label": "biological_process", "value": "biological_process"},
-            {"label": "molecular_function", "value": "molecular_function"},
-            {"label": "celllular_component", "value": "cellular_component"}]
+        options=[{"label": "Biological Process", "value": "biological_process"},
+            {"label": "Molecular Function", "value": "molecular_function"},
+            {"label": "Cellular Component", "value": "cellular_component"}]
         ), 
         dcc.Dropdown(
         id="model-testing_set", placeholder="Testing Set", 
-        options=[{"label": "Cluster50", "value": "cluster50"},
+        options=[{"label": "Cluster 50", "value": "cluster50"},
             {"label": "Random", "value": "random"}]
         ), 
         dcc.Dropdown(
@@ -60,7 +60,8 @@ model_results_layout = html.Div([
 ])
 
 def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
-    dash_app = dash.Dash(name, server=server, external_stylesheets=external_stylesheets, **kwargs)
+    #assets_url_path="static"
+    dash_app = dash.Dash(name, server=server, **kwargs)
     #print("dash app config", dash_app.config)
     dash_app.layout = html.Div([
         dcc.Location(id='url', refresh=False),
@@ -96,8 +97,12 @@ def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
     def update_model_graph(model_ids, metric):
         fig = go.Figure()
         fig.update_layout(title="No data available")
+        # fig.layout.plot_bgcolor = '#090909'
+        fig.layout.paper_bgcolor = '#99D3DF'
         if(not model_ids):
-            return fig
+            model_ids = [5, 4, 1]
+            metric = "max_f1"
+            # return fig
         for model_id in model_ids:
             submissions = Submission.query.filter_by(id=model_id).all()
             if(len(submissions) <= 0 or not metric):

@@ -1,5 +1,8 @@
-from pipeline_app.load_tools import load_protein_annotations, evidence_codes
-from pipeline_app.filter_tools import filter_dict, godag, propogate_annotations, get_counts_dict, propogate_annotations, invert_protein_annotation_dict, enforce_threshold, enforce_count
+from pipeline_app.filter_tools import godag
+from go_bench.utils import evidence_codes
+from go_bench.load_tools import load_protein_annotations
+from go_bench.processing import filter_dict, propogate_annotations, get_counts_dict, invert_protein_annotation_dict, enforce_count, enforce_threshold
+
 import pandas as pd
 import os
 import logging

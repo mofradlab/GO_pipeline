@@ -12,47 +12,219 @@
     {% include "header.html" %}
 	<section id="pageContent">
 		<main role="main">
-            <article>
-                <h1> Introduction </h1>
-                <p>
-                    The Gene Ontology pipeline attempts to streamline the process of building a dataset for functional annotation. 
-                    Based on the options selected on the dataset_form homepage, a large set of protein annotations will be extracted from 
-                    the <a href=https://www.ebi.ac.uk/GOA>GOA database</a>, filtered, and postprocessed. The resulting tab separated file 
-                    can be used directly for training or evaluating models. 
-                </p>
-                <br>
-                <h1> Benchmark Compatibility</h1>
-                <p>
-                    Training and validation sets returned by our form are designed to avoid conflicts with all datasets from 
-                    "Benchmarking Gene ontology Function Predictions Using Negative Annotations" (Vesztrocy, Dessimoz 2020). 
+            <!-- 
+                - What is this website for? 
+                    - GO annotation ML
+                        - CAFA
+                        - DeepPredGO, GOLabler, BLAST... 
+                        - Namespaces
 
-                    Datasets may also be made compliant with the CAFA Challenge by filtering by the proper maximum date. 
-                </p>
-                <br>
-                <h1> Evidence Codes </h1>
-                <p>
-                    The evidence codes in our form represent possible sources for protein - GO term associations. Select an evidence 
-                    code to add all terms found using that method to your dataset. <br> <br>
+                        Mission Statement
+
+                        Gene ontology annotation is a common problem in bioinformatics in which genes must be associated with 
+                        their properties in living organisms, with the properties being represented by Gene Ontology (GO) terms.
+                        In its most common form, GO annotation is the problem of selecting a protein's properties based 
+                        on its sequence. This works very naturally as a machine learning problem of learning function based on 
+                        sequence, but also as a bioinformatics problem of associating proteins with similar functions. 
+                        
+                        Current work in GO annotation is largely based on the Critical Assessment of protein Function Annotation algorithms 
+                        (CAFA) competitions. In these competitions, a large set of proteins with unknown function is reserved,
+                        and hundreds of teams compete to make predictions on them. After a several months, many of these proteins
+                        are experimentally annotated, and competitors are evaluated based on their accuracy within the competition. 
+                        The CAFA competition works extremely well for evaluation, since it's nearly impossible to cheat, and teams can safely 
+                        use any available source of data. However, its downside is that it requires more than a year between evaluations. 
+
+                        Currently, it's typical for new GO annotation papers to recreate the CAFA dataset using the same methodology
+                        so that they can evaluate against previous models. However, this is labor intensive, and inexact. Each paper
+                        may have its own methodology and provide subtly different comparisons, issues that are compounded by the fact 
+                        that different models may require differently constructed datasets. 
+
+                        There is no perfect GO annotation dataset. However, this web application offers a set of several customizable 
+                        datasets designed to be highly compatible, so that GO annotations models can be efficiently trained and compared at 
+                        any time. 
+
+                    - Pipeline
+                    - Leaderboard
+                - What is the GO Pipeline? 
+                    - Dataset Form outputs training, validation, and testing datasets
                     
-                    A quick guide to evidence codes can be found here: <a href="http://geneontology.org/docs/guide-go-evidence-codes/"> Evidence Code Guide</a>. 
+                    GO Bench is oriented towards ML applications in which models are trained using a large training dataset, 
+                    and then tuned and tested using validation and testing sets. By convention, it generates a train/validation/test
+                    split of 0.7/0.15/0.15. GO Annotation is treated as a multi-class, multi-label learning problem, in which proteins
+                    are associated with any number of GO terms, so a dataset for the model is simply a set of Uniprot identifiers, with
+                    each identifier associated with some number of GO IDs. FASTA files containing protein sequences for each identifier
+                    are available from <a>https://www.uniprot.org/</a>. 
+
+                    Datasets are generated by our <a href="{{url_for('dataset_construction')}}"> dataset form</a> page, which
+                    lists customizable options for potential datasets. On submission, a dataset is constructed from the form
+                    and made available for download. 
+
+                - GO Bench Data Sources
+                    - GOA database annotations 
+                    - UniProt SwissProt proteins
+                    - Gene Ontology
+
+                    All GO Bench proteins are in the Swiss-Prot set of manually reviewed proteins, and annotated using results from 
+                    the Gene Ontology Annotation (GOA) database. Results can be replicated using Febuary 2021 versions of both datasets. 
+                    (Exact links included in supplementary details of paper.)
+
+                    Options such as annotation propagation in GO Bench require knowledge of the Gene Ontology graph. This is sourced from
+                    <a href=http://purl.obolibrary.org/obo/go/go-basic.obo> http://purl.obolibrary.org/obo/go/go-basic.obo<\a>. 
+
+                - What do the pipeline options do? 
+                    - Select GOA results
+                    - Propagate annotations up GO tree
+                    - Switch between cluster50 and random train/val/test
+                    - Namespaces
+
+                - Dataset Form Configuration
+                    - Datasets are configurable based on evidence codes, annotation propagation, date of annotation, namespace, 
+                    and split method. 
+                    - Evidence codes represent the source of a given protein annotation, and are included in the GOA database. 
+                    A quick guide to evidence codes can be found here: <a href="http://geneontology.org/docs/guide-go-evidence-codes/">GO Evidence Codes<a>
+                    Each evidence code is represented by a short acronym in the dataset form, and can be selected to include annotations
+                    based on that evidence code in the downloadable dataset. For instance, the EXP code indicates that protein annotations
+                    are based on direct experimental evidence, and is highly trustworthy. So, we select the EXP evidence code by default. 
+
+                    In contrast, the IEA code indicates that an annotation is based entirely on computed heuristics. IEA coded annotations are 
+                    very common, but relatively untrustworthy, so these are left out of our default selection. 
+
+                    -Annotation 
+                - Properties of the datasets. 
+                    - Datasets are compatible with Negative Benchmarking paper. 
+                    - Datasets drawn from different sets of evidence codes are still compatible. 
+                - Model Upload Form
+                    - What should be in each entry? 
+                    - Cluster50 vs Random
+                    - Exp vs non-IEA
+                    - File type: CAFA prot - ann or prot - all ann. 
+                - Leaderboard
+                    - Metrics for each model. 
+                    - Existing predictions. 
+                    - Working baselines. 
+                - Link to simple tutorial. 
+                    - Download exp dataset, untar files, train GO model, make testing predictions, 
+                    upload to leaderboard. 
+                    - Include sample files for each step. 
+                
+
+             -->
+            <article>
+                <h1>Mission Statement</h1>
+                <p>
+                    Gene ontology annotation is a common problem in bioinformatics in which genes must be associated with 
+                    their properties in living organisms, with the properties being represented by Gene Ontology (GO) terms.
+                    In its most common form, GO annotation is the problem of selecting a protein's properties based 
+                    on its sequence. This works very naturally as a machine learning problem of learning function based on 
+                    sequence, but also as a bioinformatics problem of associating proteins with similar functions. 
+                <p>
                 </p>
-                <br>
-                <h1> Propogate Annotations</h1>
+                    Current work in GO annotation is largely based on the Critical Assessment of protein Function Annotation algorithms 
+                    (CAFA) competitions. In these competitions, a large set of proteins with unknown function is reserved,
+                    and hundreds of teams compete to make predictions on them. After a several months, many of these proteins
+                    are experimentally annotated, and competitors are evaluated based on their accuracy within the competition. 
+                    The CAFA competition works extremely well for evaluation, since it's nearly impossible to cheat, and teams can safely 
+                    use any available source of data. However, its downside is that it requires more than a year between evaluations. 
+                </p>
+                <p>
+                    Currently, it's typical for new GO annotation papers to recreate the CAFA dataset using the same methodology
+                    so that they can evaluate against previous models. However, this is labor intensive, and inexact. Each paper
+                    may have its own methodology and provide subtly different comparisons, issues that are compounded by the fact 
+                    that different models may require differently constructed datasets. 
+                </p>
+                <p>
+                    There is no perfect GO annotation dataset. However, this web application offers a set of several customizable 
+                    datasets designed to be highly compatible, so that GO annotations models can be efficiently trained and compared at 
+                    any time. Dataset format and sources are very similar to those of CAFA, and will be familiar for any participants 
+                    in the competition. 
+                </p>
+                <h1> GO Pipeline </h1>
+                <p>
+                    GO Bench is oriented towards ML applications in which models are trained using a large training dataset, 
+                    and then tuned and tested using validation and testing sets. By convention, it generates a train/validation/test
+                    split of 0.7/0.15/0.15. 
+                </p>
+                <p>
+                    Based on the options selected on the <a href="{{url_for('dataset_construction')}}"> dataset form</a> page, a 
+                    large set of protein annotations are be extracted from the <a href=https://www.ebi.ac.uk/GOA>GOA database</a>, 
+                    filtered, and postprocessed. The resulting tab separated file can be used directly for training or evaluating models. 
+                </p>
+                <p>
+                    GO Annotation is treated as a multi-class, multi-label learning problem, in which proteins
+                    are associated with any number of GO terms, so a dataset for the model is simply a set of Uniprot identifiers, with
+                    each identifier associated with some number of GO IDs. FASTA files containing protein sequences for each identifier
+                    are available from <a href=https://www.uniprot.org> UniProt Swiss-Prot</a>. 
+                </p>
+                <h1>Dataset Form Configuration</h1>
+                <p>
+                    Datasets are configurable based on evidence codes, annotation propagation, date of annotation, namespace, 
+                    and split method. 
+                </p>
+                <h2>Evidence Codes</h2>
+                <p>
+                    Evidence codes represent the source of a given protein annotation, and are included in the GOA database. 
+                    A quick guide to evidence codes can be found here: <a href="http://geneontology.org/docs/guide-go-evidence-codes/">GO Evidence Codes<a>
+                    Each evidence code is represented by a short acronym in the dataset form, and can be selected to include annotations
+                    based on that evidence code in the downloadable dataset. For instance, the EXP code indicates that protein annotations
+                    are based on direct experimental evidence, and is highly trustworthy. So, we select the EXP evidence code by default. 
+                </p>
+                <p>
+                    In contrast, the IEA code indicates that an annotation is based entirely on computed heuristics. IEA coded annotations are 
+                    very common, but relatively untrustworthy, so these are left out of our default selection.
+                </p>
+                <p>
+                    For convenience, we organize evidence codes into three groups based on level of trustworthiness. These can be selected 
+                    as default options in our form, and can be roughly described as "experimentally based annotations", "human reviewed annotations", 
+                    and "all annotations". Based on our own experiments, most machine learning models get the highest performance using 
+                    "human reviewed annotations". 
+                </p>
+                    
+
+                <h2>Date Filtering</h2>
+                <p>
+                    We allow GO annotations to be filtered by date, largely so that users can build datasets compatible with previous CAFA 
+                    competitions. 
+                </p>
+        
+                <h2>Namespace</h2>
+                <p>
+                    Gene Ontology terms are divided into three distinct catagories of Molecular Functions, Biological 
+                    Processes, and Cellular Components. These represent different aspects of gene properties, and are almost always modeled 
+                    separately. GO Bench outputs separate datasets for each of these namespaces. 
+                </p>
+                
+                <h2> Propogate Annotations</h1>
                 <p>
                     Our Gene Ontology dataset maps proteins to the associated GO terms, but only actually stores the most 
                     specific term associated with a given protein. For instance, we might store an association between the protein Q13219 and 
                     the GO term "hexose biosynthetic process", but we wouldn't explicitely store an association between Q13219 and the more general 
-                    term "metabolic process". <br> <br>
+                    term "metabolic process". 
+                </p>
+                <p>
+                    The propogate annotations option augments our dataset with these implicit associations by propogating known annotations up the 
+                    Gene Ontology tree. This greatly expands the number of annotations provided, but is also somewhat redundant. 
+                </p>
 
-                    The propogate annotations option augments our dataset with these implicit associations before returning anything. 
+                <h1> Files</h1>
+                <p>
+                    
                 </p>
                 <br>
-                <h1>Max Date</h1>
+                <h1> Benchmark Compatibility</h1>
+                <p>
+                    Training and validation sets returned by our form are designed to avoid conflicts with datasets from 
+                    "Benchmarking Gene ontology Function Predictions Using Negative Annotations" (Vesztrocy, Dessimoz 2020). 
+                </p>
+                <p>
+                    Datasets may also be made compliant with the CAFA Challenge by filtering by the proper maximum date. 
+                </p>
+
+                <h2>Max Date</h2>
                 <p>
                     Enter a maximum date to exclude recent protein - term associations from your dataset.  
                 </p>
                 <br>
-                <h1> Negative Annotations (Coming Soon)</h1>
+                <!-- <h1> Negative Annotations (Coming Soon)</h1>
                 <p>
                     Very few negative annotations are explicitely provided by any dataset. However, there are methods for identifying
                     very probably negative annotations. <br> <br>
@@ -60,18 +232,10 @@
                     Our pipeline extracts probably negative samples using the NegGOA process introduced in 
                     "NegGOA: Negative GO Annotations Selection Using Ontology Structure" (Fu, Wang, Yang, Yu 2020). A subset of these annotations, 
                     equal in size to the returned positive annotations, may be returned along with the other data. 
-                </p>
+                </p> -->
                 <br>
                 <h1> </h1>
-                <h1> Download Format</h1>
-                <p>
-                    Your dataset will come in the form of a gzipped tar archive. On a bash terminal or command prompt, it can be unpacked with
-                    the command " tar -xvzf <filepath>". The resulting files correspond to the training, validation, and testing files of the Gene
-                    Ontology domains selected in the form. <br> <br>
 
-                    Each file contains two tab-separated columns, with the first column storing UniProt protein IDs, and the second containing
-                    a comma separated list of the associated Gene Ontology terms. 
-                </p>
 
             </article>
 		</main>

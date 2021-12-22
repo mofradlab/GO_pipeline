@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="https://html5-templates.com/" />
+	<link rel="icon" href="https://llp.berkeley.edu/wp-content/uploads/2018/01/cropped-logo_ucb2-e1516672757796-1-32x32.png" sizes="32x32">
+    <title>DatasetForm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    {% include "header.html" %}
+	<section id="pageContent">
+		<main role="main">
+			<article>
+                <h1>
+                    GO Bench Supplementary Data
+                </h1>
+                <p>
+                    <a id="go_sprot_link", href="https://ftp.uniprot.org/pub/databases/uniprot/previous_major_releases/release-2021_02/knowledgebase/uniprot_sprot-only2021_02.tar.gz"> 
+                        GO Bench Swissprot Dataset
+                    </a>
+                    <br>
+                    Swissprot download link containing sequences (in fasta format) for each protein 
+                    included in GO Bench datasets. Sequences are not included directly from GO_Bench, 
+                    so they must be sourced from here and combined with GO_Bench annotations for modeling. 
+                    (See GO_Bench_Sample code on github for examples) 
+
+                </p>
+                <p>
+                    <a id="go_ont_link", href="http://purl.obolibrary.org/obo/go/go-basic.obo"> 
+                        Gene Ontology
+                    </a>
+                    <br> 
+                    Link to the go-basic.obo gene ontology file used by GO Bench. 
+                    Frequently useful for structured modeling of protein annotations, or for reproducing GO Bench 
+                    annotation propagation. 
+                    
+                </p>
+                <p>
+                    <a id="go_ont_link", href="ftp://ftp.ebi.ac.uk/pub/databases/GO/goa/old//UNIPROT/goa_uniprot_all.gaf.203.gz"> 
+                        Gene Ontology Annotation Database
+                    </a>
+                    <br> 
+                    Link to the Gene Ontology Annotation database used to construct GO Bench. Use for reproducing GO Bench,
+                    or for additional data. 
+                    
+                </p>
+                <p>
+                    <a id="Negative Benchmark", href="https://lab.dessimoz.org/20_not"> 
+                        Negative Benchmark Dataset
+                    </a>
+                    <br> 
+                    Link to data and code for the Negative Benchmarking dataset by Dessimoz Lab. All GO Bench training datasets are built 
+                    to be compatible with Negative Benchmarking dataset, which can be used for higher confidence testing under 
+                    some circumstances. 
+                </p>
+            </article>
+		</main>
+		{%include "sidebar.html" %}
+	</section>
+    <footer>
+        <address>
+            Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+        </address>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/loading_page.js') }}"></script>
+</body>
+</html>

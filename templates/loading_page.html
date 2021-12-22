@@ -23,6 +23,12 @@
                     <div id="results_links", hidden>
                         <a id="results_link", href="{{url_for('/results/')}}"> Dataset Visualization</a>
                         <a id="download_link", href="{{url_for('file_download', form_hash='')}}"> Download Dataset</a>
+                        <p>
+                            *Dataset includes annotated proteins, but not sequences directly. See dataset links 
+                            <a id="dataset_links", href="{{url_for('dataset_links')}}"> here</a> for a download of protein sequences. 
+
+                            
+                        </p>
                     </div>
                 </p>
             </article>

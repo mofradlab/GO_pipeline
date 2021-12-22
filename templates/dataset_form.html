@@ -26,70 +26,108 @@
                     <a hidden id="loading_page_link" href="{{url_for('loading_page', form_hash='')}}"></a>
                     <input id="form_content_id" name="form_content_id" type="hidden" value="UNINITIALIZED">
                     <div class="checkbox_entry">
-                        <ul>
-                            <li>Select Evidence Codes</li>
-                            <li><input type='checkbox' id='EXP' name='EXP' value="True" checked> 
+                        <table class='form_table'>
+                            <tr>
+                              <th></th>
+                              <th>Evidence Codes</th>
+                            </tr>
+                            <tr>
+                              <td>Experimental</td>
+                              <td>
+                                <input type='checkbox' class='e_code' id='EXP' name='EXP' value="True" checked> 
                                 <label for='EXP'> EXP</label>
-                               <input type='checkbox' id='IDA' name='IDA' value="True" checked> 
+                               <input type='checkbox' class='e_code' id='IDA' name='IDA' value="True" checked> 
                                 <label for='IDA'> IDA</label>
-                               <input type='checkbox' id='IPI' name='IPI' value="True" checked> 
+                               <input type='checkbox' class='e_code' id='IPI' name='IPI' value="True" checked> 
                                 <label for='IPI'> IPI</label>
-                               <input type='checkbox' id='IMP' name='IMP' value="True" checked> 
+                               <input type='checkbox' class='e_code' id='IMP' name='IMP' value="True" checked> 
                                 <label for='IMP'> IMP</label>
-                               <input type='checkbox' id='IGI' name='IGI' value="True" checked> 
+                               <input type='checkbox' class='e_code' id='IGI' name='IGI' value="True" checked> 
                                 <label for='IGI'> IGI</label>
-                               <input type='checkbox' id='IEP' name='IEP' value="True" checked> 
+                               <input type='checkbox' class='e_code' id='IEP' name='IEP' value="True" checked> 
                                 <label for='IEP'> IEP</label>
-                            </li>
-                            <li>
-                                <input type='checkbox' id='TAS' name='TAS' value="True"> 
-                                <label for='TAS'> TAS</label>
-                                <input type='checkbox' id='NC' name='NC' value="True"> 
-                                <label for='NC'> NC</label>
-                            </li>
-                            <li>
-                                <input type='checkbox' id='HTP' name='HTP' value="True"> 
-                                <label for='HTP'> HTP</label>
-                                <input type='checkbox' id='HDA' name='HDA' value="True"> 
-                                <label for='HDA'> HDA</label>
-                                <input type='checkbox' id='HMP' name='HMP' value="True"> 
-                                <label for='HMP'> HMP</label>
-                                <input type='checkbox' id='HGI' name='HGI' value="True"> 
-                                <label for='HGI'> HGI</label>
-                                <input type='checkbox' id='HEP' name='HEP' value="True"> 
-                                <label for='HEP'> HEP</label>
-                            </li>
-                            <li>
-                                <input type='checkbox' id='IBA' name='IBA' value="True"> 
-                                <label for='IBA'> IBA</label>
-                                <input type='checkbox' id='IBD' name='IBD' value="True"> 
-                                <label for='IBD'> IBD</label>
-                                <input type='checkbox' id='IKR' name='IKR' value="True"> 
-                                <label for='IKR'> IKR</label>
-                                <input type='checkbox' id='IRD' name='IRD' value="True"> 
-                                <label for='IRD'> IRD</label>
-                                <input type='checkbox' id='ISS' name='ISS' value="True"> 
-                                <label for='ISS'> ISS</label>
-                                <input type='checkbox' id='ISO' name='ISO' value="True"> 
-                                <label for='ISO'> ISO</label>
-                                <input type='checkbox' id='ISA' name='ISA' value="True"> 
-                                <label for='ISA'> ISA</label>
-                                <input type='checkbox' id='ISM' name='ISM' value="True"> 
-                                <label for='ISM'> ISM</label>
-                                <input type='checkbox' id='IGC' name='IGC' value="True"> 
-                                <label for='IGC'> IGC</label>
-                            </li>
-                            <li>
-                                <input type='checkbox' id='RCA' name='RCA' value="True"> 
-                                <label for='RCA'> RCA</label>
-                                <input type='checkbox' id='E' name='E' value="True"> 
-                                <label for='E'> E</label>
-                                <input type='checkbox' id='NAS' name='NAS' value="True"> 
-                                <label for='NAS'> NAS</label>
-                                <input type='checkbox' id='ND' name='ND' value="True"> 
-                                <label for='ND'> ND</label>
-                            </li>
-                        </ul>
+                              </td>
+                            </tr>
+                            <tr>
+                                <td>Skilled Review</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='TAS' name='TAS' value="True" checked> 
+                                    <label for='TAS'> TAS</label>
+                                    <input type='checkbox' class='e_code' id='IC' name='IC' value="True" checked> 
+                                    <label for='IC'> IC</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>High Throughput</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='HTP' name='HTP' value="True"> 
+                                    <label for='HTP'> HTP</label>
+                                    <input type='checkbox' class='e_code' id='HDA' name='HDA' value="True"> 
+                                    <label for='HDA'> HDA</label>
+                                    <input type='checkbox' class='e_code' id='HMP' name='HMP' value="True"> 
+                                    <label for='HMP'> HMP</label>
+                                    <input type='checkbox' class='e_code' id='HGI' name='HGI' value="True"> 
+                                    <label for='HGI'> HGI</label>
+                                    <input type='checkbox' class='e_code' id='HEP' name='HEP' value="True"> 
+                                    <label for='HEP'> HEP</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Phylogenetic</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='IBA' name='IBA' value="True"> 
+                                    <label for='IBA'> IBA</label>
+                                    <input type='checkbox' class='e_code' id='IBD' name='IBD' value="True"> 
+                                    <label for='IBD'> IBD</label>
+                                    <input type='checkbox' class='e_code' id='IKR' name='IKR' value="True"> 
+                                    <label for='IKR'> IKR</label>
+                                    <input type='checkbox' class='e_code' id='IRD' name='IRD' value="True"> 
+                                    <label for='IRD'> IRD</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Reviewed Electronic</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='ISS' name='ISS' value="True"> 
+                                    <label for='ISS'> ISS</label>
+                                    <input type='checkbox' class='e_code' id='ISO' name='ISO' value="True"> 
+                                    <label for='ISO'> ISO</label>
+                                    <input type='checkbox' class='e_code' id='ISA' name='ISA' value="True"> 
+                                    <label for='ISA'> ISA</label>
+                                    <input type='checkbox' class='e_code' id='ISM' name='ISM' value="True"> 
+                                    <label for='ISM'> ISM</label>
+                                    <input type='checkbox' class='e_code' id='IGC' name='IGC' value="True"> 
+                                    <label for='IGC'> IGC</label>
+                                    <input type='checkbox' class='e_code' id='RCA' name='RCA' value="True"> 
+                                    <label for='RCA'> RCA</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Misc.</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='NAS' name='NAS' value="True"> 
+                                    <label for='NAS'> NAS</label>
+                                    <input type='checkbox' class='e_code' id='ND' name='ND' value="True"> 
+                                    <label for='ND'> ND</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Unreviewed Computational</td>
+                                <td>
+                                    <input type='checkbox' class='e_code' id='IEA' name='IEA' value="True"> 
+                                    <label for='IEA'> IEA</label>
+                                </td>
+                            </tr>
+                          </table>
+                        <h2><b>Presets</b></h2>
+                        <input type='checkbox' class='e_preset' id='preset_exp' name='preset_exp' value="True" checked> 
+                        <label for='Experimental Quality'> Experimental</label>
+                        <input type='checkbox' class='e_preset' id='preset_niea' name='preset_niea' value="True"> 
+                        <label for='preset_niea'> Human Reviewed</label>
+                        <input type='checkbox' class='e_preset' id='preset_all' name='preset_all' value="True"> 
+                        <label for='preset_all'> All</label>
+
+
                     </div>
                     <div class="checkbox_entry">
                         <ul>
@@ -149,6 +187,10 @@
                         <button id="form_submit">Submit Form</button>
                     </div>
                 </form>
+                <div id="download_section", hidden>
+                    If redirect is blocked, follow the link here to reach download page. 
+                    <a id="download_page_link", href=""> Download Page</a>
+                </div>
             </article>
 		</main>
 		{%include "sidebar.html" %}
@@ -156,7 +198,7 @@
 	<footer>
 		<p>&copy; Website based on: <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
 		<address>
-			Contact: <a href="amdickson@berkeley.edu">Andrew Dickson</a>
+			Contact: Andrew Dickson (amdickson at berkeley.edu)
 		</address>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

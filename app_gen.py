@@ -4,7 +4,7 @@ import os
 import logging
 
 root_path = os.path.abspath(os.path.dirname(__file__)) #Used for file management because cwd is unknown. 
-logging.basicConfig(filename=root_path + '/app.log', level=logging.DEBUG)
+logging.basicConfig(filename=root_path + '/app.log', level=logging.ERROR)
 logging.error("test message for app startup from app_gen")
 print("flask __name__", __name__)
 
