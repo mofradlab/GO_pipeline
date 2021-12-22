@@ -43,7 +43,7 @@ with app.test_request_context():
 
 dash_app = initialize_dash_app(__name__, app, analysis_content_dict, 
                     routes_pathname_prefix="/results/", 
-                    requests_pathname_prefix=requests_pathname_prefix)
+                    requests_pathname_prefix="/~llp/flask/results/")
 
 @app.route("/home")
 def home():
