@@ -10,6 +10,7 @@ print("flask __name__", __name__)
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "{}/../../data/user_uploads".format(root_path)
+app.config['GOA_PATH'] = "../../data/swissprot_goa.gaf.gz" 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}/../../data/SQL_leaderboard.db'.format(root_path)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)

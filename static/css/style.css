@@ -13,7 +13,7 @@
     --c2: #6D929B;
     --c4: #B7AFA3;
     --c3: #E8D0A9;
-    --c5: #F5FAFA;
+    --c5: #f7f0e1;
     --c6: #C1DAD6;
 }
 
@@ -23,7 +23,7 @@
 } */
 
 
-body{line-height:1; font-family: arial;}
+body{line-height:1; font-family: 'Helvetica';}
 nav ul{list-style:none}
 form ul{list-style:none}
 a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
@@ -126,6 +126,16 @@ table {
   
 #leaderboard_table  tr:hover {background-color: #adadad}
 
+#doc_text {
+    background-color: var(--c5);
+}
+
+#form_text {
+    background-color: var(--c5);
+    margin-right: 0px;
+    padding-left: 200px;
+}
+
 nav {
     display: inline-block;
 }
@@ -199,12 +209,15 @@ article h2 {
   }
 
 .checkbox_entry {
-    background-color: var(--c2);
-    color:rgb(248, 236, 219); 
+    /* background-color: var(--c2);
+    color:rgb(248, 236, 219);  */
     display:block;
     color: black;
     /* border: 2px solid rgb(71, 40, 19); */
+    border-bottom: 2px dashed var(--c4);
     margin: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
     padding: 20px;
     text-align: center;
 }

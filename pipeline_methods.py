@@ -2,6 +2,7 @@ from pipeline_app.filter_tools import godag
 from go_bench.utils import evidence_codes
 from go_bench.load_tools import load_protein_annotations
 from go_bench.processing import filter_dict, propogate_annotations, get_counts_dict, invert_protein_annotation_dict, enforce_count, enforce_threshold
+from app_gen import app
 
 import pandas as pd
 import os
@@ -35,12 +36,9 @@ def construct_prot_dict(req_dict):
     input_dict["propogate_terms"] = "propogate_annotations" in req_dict
 
     term_filter_data = {}
-    term_filter_data["method"] = "None"
-    filter_types = ["min_samples", "top_k"]
-    for filter_type in filter_types:
-        if filter_type in req_dict:
-            term_filter_data["method"] = filter_type
-    term_filter_data["count"] = int(req_dict["GO Term Appearance Threshold"])
+    term_filter_data["method"] = req_dict["filter_method"]
+    term_filter_data["count"] = int(req_dict["selected_count"])
+
     input_dict["term_filter_data"] = term_filter_data
 
     namespaces = ["biological_process", "molecular_function", "cellular_component"]
@@ -65,7 +63,7 @@ def pipeline(input_dict, analysis_content_dict):
     
     logging.debug("loading proteins")
 
-    prot_dict = load_protein_annotations(codes, min_date=min_date, max_date=max_date) #Read in protein annotations made by specific codes. 
+    prot_dict = load_protein_annotations(app.config["GOA_PATH"], codes, min_date=min_date, max_date=max_date) #Read in protein annotations made by specific codes. 
     prot_dict = filter_dict(prot_dict, godag)
     logging.debug("propogating terms")
     #Read in terms

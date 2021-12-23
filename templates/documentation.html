@@ -109,7 +109,7 @@
                 
 
              -->
-            <article>
+            <article id="doc_text" style="padding: 50px;">
                 <h1>Mission Statement</h1>
                 <p>
                     Gene ontology annotation is a common problem in bioinformatics in which genes must be associated with 
@@ -175,10 +175,19 @@
                 <p>
                     For convenience, we organize evidence codes into three groups based on level of trustworthiness. These can be selected 
                     as default options in our form, and can be roughly described as "experimentally based annotations", "human reviewed annotations", 
-                    and "all annotations". Based on our own experiments, most machine learning models get the highest performance using 
+                    and "all annotations". Based on our own experiments, most deep learning models get the highest performance using 
                     "human reviewed annotations". 
                 </p>
-                    
+                <h2>Split Method</h2>
+                <p>
+                    The split method for proteins determines how your dataset was split into training, validation, and testing. 
+                    Our recommended setting is cluster50, in which proteins with over 50% similarity are always grouped within the
+                    same dataset. This is standard for most protein classification problems, and makes the problem setting more 
+                    challenging. 
+
+                    Random is the alternative setting in which proteins are divided blindly. A major benefit of random is that because 
+                    splits are made truely randomly, class counts have a more even distribution between training, validation and testing. 
+                </p>
 
                 <h2>Date Filtering</h2>
                 <p>
@@ -207,23 +216,20 @@
 
                 <h1> Files</h1>
                 <p>
-                    
+                    GO_Bench returns a gzipped tar file containing training, validation, and testing data for all selected namespaces. 
+                    The output can be unzipped with "tar -xzvf GO_benchmark_data.tar.gz", as shown in our ipython notebook tutorial. Once 
+                    unzipped, it should have the following structure. 
+                    <img class="logo" src="{{url_for('static', filename='images/sample_images/gb_file_structure.png')}}"
+                     alt="Untarred result folder." style="width: 450px;">
+
                 </p>
                 <br>
                 <h1> Benchmark Compatibility</h1>
                 <p>
-                    Training and validation sets returned by our form are designed to avoid conflicts with datasets from 
-                    "Benchmarking Gene ontology Function Predictions Using Negative Annotations" (Vesztrocy, Dessimoz 2020). 
-                </p>
-                <p>
+                    Training and validation sets returned by our form are designed to any overlap with datasets from 
+                    "Benchmarking Gene ontology Function Predictions Using Negative Annotations" (Vesztrocy, Dessimoz 2020).
                     Datasets may also be made compliant with the CAFA Challenge by filtering by the proper maximum date. 
                 </p>
-
-                <h2>Max Date</h2>
-                <p>
-                    Enter a maximum date to exclude recent protein - term associations from your dataset.  
-                </p>
-                <br>
                 <!-- <h1> Negative Annotations (Coming Soon)</h1>
                 <p>
                     Very few negative annotations are explicitely provided by any dataset. However, there are methods for identifying

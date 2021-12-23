@@ -5,11 +5,24 @@ document.getElementById('dataset_form').onsubmit = function(event) {
     var dataset_form = document.getElementById("dataset_form");
     //Construct form hash code and add to form. 
     var inputs = dataset_form.elements;
+    var checkboxes = document.querySelectorAll('input[type=checkbox]');
+    var selectors = document.querySelectorAll('select');
+    console.log(selectors);
+
     form_string = "";
     // Iterate over the form controls
     for (i = 0; i < inputs.length; i++) {
         form_string = form_string + inputs[i].outerHTML;
     }
+    for (i = 0; i < checkboxes.length; i++) {
+        if(checkboxes[i].checked) {
+            form_string = form_string + checkboxes[i].outerHTML; 
+        }
+    }
+    for (i = 0; i < selectors.length; i++) {
+        form_string = form_string + selectors[i].value; 
+    }
+    console.log(form_string); 
     string_hash = cyrb53(form_string);
     console.log("form hash", string_hash);
     form_content_id.value = string_hash;
@@ -83,5 +96,19 @@ window.addEventListener( "load", function () {
 
     for (var i = 0; i < preset_elements.length; i++) {
         preset_elements[i].addEventListener('change', update_checkboxes); 
-    }        
+    }
+
+    function update_count() {
+        var count_entry = document.getElementById("selected_count");
+        var count_type = document.getElementById("filter_method"); 
+        console.log(count_type.value);
+        if(count_type.value == "min_samples") {
+            count_entry.setAttribute('value', 50);
+        } else {
+            count_entry.setAttribute('value', 120);
+        }
+    }
+    var count_type = document.getElementById("filter_method"); 
+    count_type.addEventListener('change', update_count); 
+
 } );
