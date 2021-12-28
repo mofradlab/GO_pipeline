@@ -1,18 +1,8 @@
-
-:root {
-    --c1: #99D3DF;
-    --c2: #88BBD6;
-    /* --c3: #CDCDCD;  */
-    --c3: rgb(248, 236, 219);
-    --c4:  #E9E9E9; 
-}
-
-
 :root {
     --c1: #ACD1E9;
     --c2: #6D929B;
     --c4: #B7AFA3;
-    --c3: #E8D0A9;
+    --c3: #EFE2BA;
     --c5: #f7f0e1;
     --c6: #C1DAD6;
 }
@@ -38,6 +28,11 @@ h1{font-size: 25px;}h2{font-size: 21px;}h3{font-size: 18px;}h4{font-size: 16px;}
 article h2 {
     font-weight: normal;
     margin-bottom: 12px;
+}
+article h1 {
+    font-size: 25px;
+    padding-top: 5px;
+    margin-top: 0px;
 }
 
 body,html {
@@ -106,14 +101,20 @@ table {
     padding-top: 20px;
 }
 
-#leaderboard_table  th {
+#leaderboard_table {
+    width: auto;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#leaderboard_table th {
     border: 2px rgb(0, 0, 0);
     background-color: var(--c2);
-    padding:0 5px 0 5px;
+    /* padding:0 5px 0 5px; */
 }
 #leaderboard_table  td {
     text-align: right; 
-    padding:0 5px 0 5px;
+    padding:5px 20px 5px 20px;
 }
 
 #leaderboard_table  tr:nth-child(odd) {
@@ -141,12 +142,12 @@ nav {
 }
 nav ul li a {
     background: #EEE;
-    padding: 2px 10px;
+    padding: 4px 10px;
     font-size: 20px;
     text-decoration: none;
     font-weight: bold;
     color: #444;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 nav ul li a:hover {
 	background: #FFF;
@@ -181,9 +182,11 @@ aside {
 	width: 30%;
 }
 article {
-    border-bottom: 2px dotted #999;
+    border: 2px solid var(--c2); 
+    margin-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    background-color: var(--c5);
 }
 article h2 {
     font-weight: normal;
@@ -200,9 +203,9 @@ article h2 {
 }
 
 .sidebar {
-    background-color: var(--c2);
+    background-color: var(--c5);
     color: black;
-    /* border: 2px solid rgb(46, 44, 168); */
+    border: 2px solid var(--c2);
     margin: 20px;
     padding: 20px;
     text-align: center;
@@ -228,7 +231,7 @@ article h2 {
 }
 
 #model_info {
-    background-color: var(--c2);
+    /* background-color: var(--c2); */
     display:block;
     color: black;
     margin: 20px;

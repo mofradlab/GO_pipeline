@@ -187,6 +187,11 @@
 
                     Random is the alternative setting in which proteins are divided blindly. A major benefit of random is that because 
                     splits are made truely randomly, class counts have a more even distribution between training, validation and testing. 
+
+                    The cluster50 and random splits are pre-generated, and consistent between dataset requests. Other settings, such as 
+                    for annotation quality, may change the number of proteins in a dataset, but only by filtering training, validation, and 
+                    testing seperately. <bf>As long as the split method is consistent between datasets, models trained on one can be fairly 
+                        evaluated on the other. </bf>
                 </p>
 
                 <h2>Date Filtering</h2>
@@ -221,9 +226,15 @@
                     unzipped, it should have the following structure. 
                     <img class="logo" src="{{url_for('static', filename='images/sample_images/gb_file_structure.png')}}"
                      alt="Untarred result folder." style="width: 450px;">
-
                 </p>
-                <br>
+                <p>
+                    .tsv files within the dataset contain two tab-separated columns, one representing Uniprot protein IDs and the other
+                    listing GO IDs associated with the protein, separated by commas. 
+                    <br>
+                    .json files list the GO terms found in training, validation, and testing sets. For completeness, testing sets always 
+                    contain every GO ID associated with the given prot ids, but training and validation sets may have rare terms filtered out 
+                    to improve training. 
+                </p>
                 <h1> Benchmark Compatibility</h1>
                 <p>
                     Training and validation sets returned by our form are designed to any overlap with datasets from 
@@ -239,10 +250,22 @@
                     "NegGOA: Negative GO Annotations Selection Using Ontology Structure" (Fu, Wang, Yang, Yu 2020). A subset of these annotations, 
                     equal in size to the returned positive annotations, may be returned along with the other data. 
                 </p> -->
-                <br>
-                <h1> </h1>
-
-
+                <h1>Model Comparison</h1>
+                <p>
+                    Models trained on GO Bench data can also be evaluated by submitting to our leaderboard. Prediction formats should be similar to
+                    what they were for the <a href="https://www.biofunctionprediction.org/cafa-targets/CAFA4_rules%20_01_2020_v4.pdf">CAFA4 competition</a>, 
+                    with three tab-separated columns. 
+                </p>
+                <p>
+                    No header is required, and each row should contain a prediction of the form `{Uniprot ID} {GO ID} {Probability}`, 
+                    where probability is a confidence indicator ranging from 0 to 1. Probabilities below 0.01 should be excluded. 
+                </p>
+                <p>
+                    After upload, you can view your results on the model visualizations panel, which generates precision-recall, S-min, 
+                    and F-Score curves for the model predictions in their given category. Our convention is to record results for testing data 
+                    generated with Experimental quality annotation codes, which minimize the chance of false positives in the evaluation set, but 
+                    have a higher chance of having false negatives. 
+                </p>
             </article>
 		</main>
 		{%include "sidebar.html" %}

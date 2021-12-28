@@ -5,14 +5,14 @@ window.addEventListener( "load", function () {
                      "testing_quality":"exp", "page_num":0, 
                      "page_len":10, "sort_col":"max_f1", "desc":"desc"}; 
 
-    var table = document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
+    var table = document.getElementById("leaderboard_table");
     var table_headers = table.rows[0].getElementsByTagName("TH");
 
     function boldElement(weight, event) {
         event.srcElement.style.fontWeight = weight; 
     }
     function change_table_col(column) {
-        var table = document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
+        var table = document.getElementById("leaderboard_table");
         col_cell1 = table.rows[0].getElementsByClassName(table_params["sort_col"])[0];
         col_cell1.innerHTML = col_cell1.innerHTML.split(/[\u25B2\u25BC]/i)[0];
         col_cell2 = table.rows[0].getElementsByClassName(column)[0];
@@ -26,7 +26,7 @@ window.addEventListener( "load", function () {
             table_params["desc"] = "desc";
             col_cell2.innerHTML = col_cell2.innerHTML + " \u25BC";
         }
-        table = document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
+        table = document.getElementById("leaderboard_table");
         col_cell = table.rows[0].getElementsByClassName(column);
     }
 
@@ -35,9 +35,11 @@ window.addEventListener( "load", function () {
         //console.log("new table params", table_params); 
         var table_url = document.getElementById("leaderboard_table_link").getAttribute("href"); 
         $.post(table_url, table_params, function(data, status){
-                //console.log(data); 
-                table =document.getElementById("leaderboard_table").getElementsByTagName("TABLE")[0];
-                updated_table = $.parseHTML(data)[0].getElementsByTagName("TABLE")[0];
+                table = document.getElementById("leaderboard_table");
+                console.log(data);
+                console.log($.parseHTML(data)[0]); 
+                updated_table = $.parseHTML(data)[0];
+                console.log(updated_table)
                 header_row = table.rows[0];
                 updated_table.rows[0].parentNode.replaceChild(header_row, updated_table.rows[0]); 
                 table.parentNode.replaceChild(updated_table, table); 

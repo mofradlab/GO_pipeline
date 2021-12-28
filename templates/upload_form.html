@@ -15,29 +15,9 @@
     <section id="pageContent">
         <main role="main">
             <article>
-                <!--
-                    Upload Form
-                    <Training Set>{cluster50, random}
-                    <Testing Set>{cluster50, random, neg. benchmark}
-                    <File Format>{multi-entry, single-entry}
-                    <File> 
-                -->
-
-                <!--
-                    Loading State
-                    - Replace form with loading icon. 
-                    - Javascript periodically queries server for results. 
-                -->
-                <!--
-                    Query Results
-                    Success: Leaderboard entry + leaderboard status
-                    Failure: Timeout / incorrect file format
-                -->
-            </article>
-            <article>
-                <h1>Upload Predictions</h1>
+                <h1 style="text-align: center">Upload Predictions</h1>
                 <p>
-                    Format your model predictions and submit them to the leaderboard for their catagory. 
+                    Format your model predictions and submit them to the leaderboard for their category. 
                 </p>
                 <form id="upload_form"> 
                     <div class="checkbox_entry">
@@ -68,7 +48,7 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
-                        <h2>Select Training/Testing Type</h2>
+                        <h2>Select Training/Testing Split</h2>
                         <ul>
                             <li>
                                 <input type="radio" id="cluster50" name="testing_set" value="cluster50"> 

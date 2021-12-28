@@ -96,7 +96,7 @@ def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
     [Input("model-dropdown", "value"), Input("model-metric", "value")])
     def update_model_graph(model_ids, metric):
         fig = go.Figure()
-        fig.update_layout(title="No data available")
+        fig.update_layout(title="No datam available")
         # fig.layout.plot_bgcolor = '#090909'
         fig.layout.paper_bgcolor = '#99D3DF'
         if(not model_ids):
@@ -145,6 +145,9 @@ def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
         Output("bar-chart", "figure"), 
         [Input("dropdown", "value"), Input("url", "pathname")])
     def update_bar_chart(namespace, pathname):
+        print("updating bar chart")
+        print(analysis_content_dict.keys())
+        print(analysis_content_dict)
         data_id = pathname.split("/")[-1]
         if(data_id in analysis_content_dict):
             df = analysis_content_dict[data_id][namespace]
@@ -152,7 +155,6 @@ def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
             return fig
         else:
             return px.bar(title="Data Not Available")
-        
     
     @dash_app.callback(
         Output("dropdown", "options"), 

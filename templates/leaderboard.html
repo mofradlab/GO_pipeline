@@ -31,28 +31,24 @@
                 </select>
                 <button type="button" id="lb_submit">Change Leaderboard</button>
             </div>
-            <article>
                 <!-- 
                     Sortable leaderboard for uploaded submissions. 
                     <Testing Set>{Cluster50, Random}
                     | Organization | F1 Score | AUC | Info. Weighted | Recall Metric | Model Description | 
 
                 -->
-                <div id="leaderboard_table">
-                    <table>
-                        {% for header, col_name in zip(headings, col_names) %}
-                        <th class={{col_name}}>{{ header }}</th>
-                        {% endfor %}
-                        {% for row in data %}
-                        <tr>
-                            {% for cell in row %}
-                            <td>{{ cell }}</td>
-                            {% endfor %}
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            </article>
+            <table id="leaderboard_table">
+                {% for header, col_name in zip(headings, col_names) %}
+                <th class={{col_name}}>{{ header }}</th>
+                {% endfor %}
+                {% for row in data %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
         </main>
         {%include "sidebar.html" %}
     </section>
