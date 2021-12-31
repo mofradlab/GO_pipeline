@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
 from pipeline_app.app_gen import app, db, root_path, Submission, SubmissionMetrics, SubmissionDescription
-from pipeline_app.pipeline_methods import construct_prot_dict, pipeline
+from pipeline_app.pipeline_methods import construct_prot_dict, run_pipeline
 from go_bench.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
 from go_bench.metrics import threshold_stats
 from pipeline_app.upload_methods import probs_to_string
@@ -242,7 +242,7 @@ def process_sequence():
 
         # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
 
-        pipeline(input_dict, analysis_content_dict)
+        run_pipeline(input_dict, analysis_content_dict)
         
         source_dir = "{}/../../data/generated_datasets/".format(root_path)
         with tarfile.open("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
