@@ -179,10 +179,16 @@
                         </ul>
                     </div>
                     <div class="checkbox_entry">
+                        <h3>Train/Test Split Method</h3>
+                        <select id="split_method" name="split_method">
+                            <option id="cluster50" value="cluster50" selected>Cluster50</option>
+                            <option id="random" value="random">Random</option>
+                        </select>
+                    </div>
+                    <div class="checkbox_entry">
                         <label for="max_date"> Cutoff Date</label>
                         <input type="date" id="max_date" name="max_date">
                     </div>
-                    
                     <div>
                         <button id="form_submit">Submit Form</button>
                     </div>

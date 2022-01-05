@@ -11,6 +11,8 @@ import logging
 import pickle
 import json
 
+from pipeline_app.load_tools import to_data_num
+
 root_path = os.path.abspath(os.path.dirname(__file__))
 
 logging.basicConfig(filename=(os.path.abspath(os.path.dirname(__file__)) + '/app.log'), level=logging.DEBUG)
@@ -31,7 +33,11 @@ def construct_prot_dict(req_dict):
     input_dict["form_content_id"] = req_dict["form_content_id"]
     filter_settings = {}
     filter_settings["evidence_codes"] = [code for code in evidence_codes if code in req_dict]
-    #TODO Support min/max dates in filter settings
+    if(len(req_dict['max_date']) > 0):
+        year, month, day = req_dict['max_date'].split("-")
+        filter_settings["max_date"] = to_data_num(year, month, day)
+        print("max date num", filter_settings["max_date"])
+    
     input_dict["filter_settings"] = filter_settings
 
     input_dict["propogate_terms"] = "propogate_annotations" in req_dict
@@ -46,10 +52,16 @@ def construct_prot_dict(req_dict):
     input_dict["namespaces"] = [namespace for namespace in namespaces if namespace in req_dict]
     input_dict["include_negative_annotations"] = "include_estimated_negative_annotations" in req_dict
 
+    split_type = req_dict["split_method"]
+        
+
     split_data = {}
     split_data["do_split"] = True
     split_data["types"] = ["training", "validation", "testing"]
-    split_data["use_clusters"] = "50"
+    if(split_type == "random"):
+        split_data["use_clusters"] = False
+    else:
+        split_data["use_clusters"] = "50"
     input_dict["split_data"] = split_data
     return input_dict
 
@@ -57,8 +69,8 @@ def construct_prot_dict(req_dict):
 def run_pipeline(input_dict, analysis_content_dict):
     filter_settings = input_dict["filter_settings"]
     codes = filter_settings["evidence_codes"]
-    min_date = 0 if not "min_date" in filter_settings else filter_settings["min_date"]
-    max_date = 1e10 if not "max_date" in filter_settings else filter_settings["max_date"]
+    min_date = None if not "min_date" in filter_settings else filter_settings["min_date"]
+    max_date = None if not "max_date" in filter_settings else filter_settings["max_date"]
     goa_path = app.config["GOA_PATH"]
 
     split_data = input_dict["split_data"]

@@ -8,7 +8,6 @@ from pipeline_app.app_gen import app, db, root_path, Submission, SubmissionMetri
 from pipeline_app.pipeline_methods import construct_prot_dict, run_pipeline
 from go_bench.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
 from go_bench.metrics import threshold_stats
-from pipeline_app.upload_methods import probs_to_string
 from pipeline_app.dash_app import initialize_dash_app
 import tarfile
 import logging
@@ -136,8 +135,8 @@ def get_documentation():
 def save_form():
     if request.method == 'POST':
         req_dict = request.form.to_dict()
-        logging.error(req_dict)
-        logging.error("storing form under key {}".format(req_dict["form_content_id"]))
+        print(req_dict)
+        print("storing form under key {}".format(req_dict["form_content_id"]))
         print(req_dict)
         form_data[req_dict["form_content_id"]] = req_dict
         return "Form recieved."
@@ -146,12 +145,15 @@ def save_form():
 def receive_upload_form():
     if request.method == 'POST':
         upload_dict = request.form.to_dict()
+        print("upload dict")
+        print(upload_dict)
         try:
             namespace = upload_dict["namespace"]
             testing_set = upload_dict["testing_set"]
             testing_quality = upload_dict["testing_quality"]
             group = upload_dict["group"]
             model = upload_dict["model_name"]
+            file_type = upload_dict["file_type"]
             if("model_description" in upload_dict):
                 model_description = upload_dict["model_description"]
             else:
@@ -183,13 +185,18 @@ def receive_upload_form():
         testing_dict = load_GO_tsv_file("{}/testing_{}_annotations.tsv".format(test_path, namespace))
         test_prot_ids = [prot_id for prot_id in testing_dict.keys()]
         testing_matrix = convert_to_sparse_matrix(testing_dict, test_ids, test_prot_ids)
-        try:
+        # try:
+        if(file_type == "single_entry"):
             prediction_matrix = read_sparse(save_path, test_prot_ids, test_ids)
-        except Exception as e:
-            os.remove(save_path)
-            return "[Error] " + str(e)
+        else:
+            prediction_dict = load_GO_tsv_file(save_path)
+            prediction_matrix = convert_to_sparse_matrix(prediction_dict, test_ids, test_prot_ids)
+        # except Exception as e:
+        #     os.remove(save_path)
+        #     print("error", e)
+        #     return "[Error] " + str(e)
         os.remove(save_path)
-
+        print("created matrices")
         test_ia = np.zeros(len(test_ids))
         for i, test_id in enumerate(test_ids):
             id_int = int(test_id[3:])
