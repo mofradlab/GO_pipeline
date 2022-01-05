@@ -3,7 +3,7 @@ from go_bench.utils import evidence_codes
 from go_bench.load_tools import load_protein_annotations
 from go_bench.processing import filter_dict, propogate_annotations, get_counts_dict, invert_protein_annotation_dict, enforce_count, enforce_threshold
 from go_bench.pipeline import pipeline
-from app_gen import app
+from pipeline_app.app_gen import app
 
 import pandas as pd
 import os
