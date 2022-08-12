@@ -2,9 +2,9 @@ $(document).ready(
   function () {
 	setTimeout(
     function(){
-    getDataset();
-    checkDataset(); 
-  }, 1500);
+      getDataset();
+      setTimeout(checkDataset, 1500); 
+    }, 1500);
 });
 
 /*
@@ -47,7 +47,7 @@ function checkDataset() {
         console.log("Generation failed.");
       } else if (data === "DATA PROCESSING") {
         console.log("Data still processing. Trying again in 10s");
-        setTimeout(function(){getDataset();}, 1500);
+        setTimeout(checkDataset, 10000);
       } else if (data == "DATA READY"){
         console.log("Data is prepared");
         updateLinks(form_hash); 

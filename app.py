@@ -175,56 +175,59 @@ def receive_upload_form():
         else:
             return "[Error] Invalid file type."
         print("saved file")
+        evaluate_prediction_upload.delay(testing_set, testing_quality, namespace, file_type, save_path, model, group, model_description)
+        return "Predictions uploaded"
 
-        #Load testing predictions
-        test_path = "{}/../data/testing_datasets/{}/{}".format(root_path, testing_set, testing_quality)
-        with open("{}/{}_terms.json".format(test_path, namespace), "r") as f: 
-            test_ids = json.load(f)
-        testing_dict = load_GO_tsv_file("{}/testing_{}_annotations.tsv".format(test_path, namespace))
-        test_prot_ids = [prot_id for prot_id in testing_dict.keys()]
-        testing_matrix = convert_to_sparse_matrix(testing_dict, test_ids, test_prot_ids)
-        # try:
-        if(file_type == "single_entry"):
-            prediction_matrix = read_sparse(save_path, test_prot_ids, test_ids)
-        else:
-            prediction_dict = load_GO_tsv_file(save_path)
-            prediction_matrix = convert_to_sparse_matrix(prediction_dict, test_ids, test_prot_ids)
-        # except Exception as e:
-        #     os.remove(save_path)
-        #     print("error", e)
-        #     return "[Error] " + str(e)
-        os.remove(save_path)
-        print("created matrices")
-        test_ia = np.zeros(len(test_ids))
-        for i, test_id in enumerate(test_ids):
-            id_int = int(test_id[3:])
-            if(id_int in go_ia_dict):
-                test_ia[i] = go_ia_dict[id_int]
+@celery.task(name="upload_evaluation", ignore_result=True, soft_time_limit=1800, time_limit=2400)
+def evaluate_prediction_upload(testing_set, testing_quality, namespace, file_type, save_path, model, group, model_description):
+    #Load testing predictions
+    test_path = "{}/../data/testing_datasets/{}/{}".format(root_path, testing_set, testing_quality)
+    with open("{}/{}_terms.json".format(test_path, namespace), "r") as f: 
+        test_ids = json.load(f)
+    testing_dict = load_GO_tsv_file("{}/testing_{}_annotations.tsv".format(test_path, namespace))
+    test_prot_ids = [prot_id for prot_id in testing_dict.keys()]
+    testing_matrix = convert_to_sparse_matrix(testing_dict, test_ids, test_prot_ids)
+    # try:
+    if(file_type == "single_entry"):
+        prediction_matrix = read_sparse(save_path, test_prot_ids, test_ids)
+    else:
+        prediction_dict = load_GO_tsv_file(save_path)
+        prediction_matrix = convert_to_sparse_matrix(prediction_dict, test_ids, test_prot_ids)
+    # except Exception as e:
+    #     os.remove(save_path)
+    #     print("error", e)
+    #     return "[Error] " + str(e)
+    os.remove(save_path)
+    print("created matrices")
+    test_ia = np.zeros(len(test_ids))
+    for i, test_id in enumerate(test_ids):
+        id_int = int(test_id[3:])
+        if(id_int in go_ia_dict):
+            test_ia[i] = go_ia_dict[id_int]
 
-        precs, recs, f_scores, rms, mis, rus, s_vals = threshold_stats(testing_matrix, prediction_matrix, test_ia)
-        print(max(f_scores), "max f1")
-        #Load predictions into sparse matrix with read_sparse. Add some helpful error messages for users. 
-        #Load testing set into sparse matrix. 
-        #Generate precision-recall statistics and save in SQL database. 
-        #Return message explaining results.  
-        stat_dict = {"prec": precs, "rec": recs, "f1": f_scores, 
-        "rm": rms, "mi": mis, "ru": rus, "s": s_vals}
-
-        submission_date = str(datetime.date.today())
-        s = Submission(testing_set=testing_set, 
-                        testing_quality=testing_quality, 
-                        namespace=namespace, 
-                        model=model, group_name=group, 
-                        max_f1=np.around(max(f_scores), 3),  
-                        s_min=np.around(min(s_vals), 3), 
-                        max_rm=np.around(max(rms), 3), 
-                        submission_date=submission_date)
-        SubmissionMetrics(metrics=pickle.dumps(stat_dict), submission=s)
-        SubmissionDescription(description=model_description, submission=s)
-        db.session.add(s)
-        db.session.commit()
-        print(s.id, s.max_f1, s.s_min, s.max_rm)
-        return "Your predictions were successfully submitted. They recieved a maximum F1 score of {}.".format(s.max_f1)
+    precs, recs, f_scores, rms, mis, rus, s_vals = threshold_stats(testing_matrix, prediction_matrix, test_ia)
+    print(max(f_scores), "max f1")
+    #Load predictions into sparse matrix with read_sparse. Add some helpful error messages for users. 
+    #Load testing set into sparse matrix. 
+    #Generate precision-recall statistics and save in SQL database. 
+    #Return message explaining results.  
+    stat_dict = {"prec": precs, "rec": recs, "f1": f_scores, 
+    "rm": rms, "mi": mis, "ru": rus, "s": s_vals}
+    submission_date = str(datetime.date.today())
+    s = Submission(testing_set=testing_set, 
+                    testing_quality=testing_quality, 
+                    namespace=namespace, 
+                    model=model, group_name=group, 
+                    max_f1=np.around(max(f_scores), 3),  
+                    s_min=np.around(min(s_vals), 3), 
+                    max_rm=np.around(max(rms), 3), 
+                    submission_date=submission_date)
+    SubmissionMetrics(metrics=pickle.dumps(stat_dict), submission=s)
+    SubmissionDescription(description=model_description, submission=s)
+    db.session.add(s)
+    db.session.commit()
+    print(s.id, s.max_f1, s.s_min, s.max_rm)
+    return "Your predictions were successfully submitted. They recieved a maximum F1 score of {}.".format(s.max_f1)
 
 @app.route('/server', methods=['GET', 'POST'])
 def process_sequence():
@@ -267,6 +270,10 @@ def check_progress():
             print("File for {} already generated".format(form_hash))
             return "DATA READY"
         status = r_queue.get(f"{form_hash}_GEN")
+        if(status is None):
+            return "JOB FAILED"
+        status = status.decode()
+        print("current status", status)
         if(status == "PROCESSING"):
             return "DATA PROCESSING"
         if(status == "READY"):
