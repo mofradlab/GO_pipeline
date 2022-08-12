@@ -35,4 +35,1378 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
-.vscode
+.vscodeERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:20] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:20] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:21] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:21] "GET /static/images/cal_logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:21] "GET /static/images/mofradlab_icon.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:41:21] "GET /static/images/model_viz_clip.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:02] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:02] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:03] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:03] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:03] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:03] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1901375926214206', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:GO_pipeline.app_gen:Exception on /server [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/app.py", line 251, in process_sequence
+    run_pipeline(input_dict, analysis_content_dict)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/pipeline_methods.py", line 90, in run_pipeline
+    propogate_terms=propogate_terms)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/go_bench/pipeline.py", line 70, in pipeline
+    with open(json_path, "w") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/pipeline_app/GO_pipeline/../../data/generated_datasets//biological_process_terms.json'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 00:42:41] "[35m[1mPOST /server HTTP/1.1[0m" 500 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:38] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:38] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:38] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:38] "GET /static/images/cal_logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:39] "GET /static/images/model_viz_clip.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:39] "GET /static/images/mofradlab_icon.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:41] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:41] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:42] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:42] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:42] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:09:42] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1901375926214206', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:GO_pipeline.app_gen:Exception on /server [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/app.py", line 247, in process_sequence
+    run_pipeline(input_dict, analysis_content_dict)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/pipeline_methods.py", line 89, in run_pipeline
+    propogate_terms=propogate_terms)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/go_bench/pipeline.py", line 82, in pipeline
+    with open(f"{split_path}/{prot_set_type}_ids.txt", "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/pipeline_app/GO_pipeline/../data/data_splits/cluster50/testing_ids.txt'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:10:23] "[35m[1mPOST /server HTTP/1.1[0m" 500 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:06] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:06] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:07] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:07] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:07] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:07] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1901375926214206', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:persisting dash info in /home/ec2-user/pipeline_app/GO_pipeline/../data/dash_cache/1901375926214206.pkl
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:15:57] "POST /server HTTP/1.1" 200 -
+ERROR:GO_pipeline.app_gen:Exception on /file_download/1901375926214206 [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/app.py", line 120, in file_download
+    return send_file(file_path, as_attachment=True, attachment_filename="GO_benchmark_data.tar.gz")
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:40] "[35m[1mGET /file_download/1901375926214206 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:53] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:55] "GET /results/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/assets/dash.css?m=1660260546.7105474 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/deps/polyfill@7.v2_6_1m1660264263.12.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/deps/react@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/deps/react-dom@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/deps/prop-types@15.v2_6_1m1660264263.8.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_6_1m1660264261.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/dcc/dash_core_components.v2_6_1m1660264263.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_6_1m1660264263.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/dash_table/bundle.v5_1_5m1660264262.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:56] "[33mGET /~llp/flask/results/_dash-component-suites/dash/html/dash_html_components.v2_0_5m1660264263.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:17:57] "[33mGET /~llp/flask/results/assets/favicon.ico?m=1660260546.7105474 HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:19:38] "[33mGET /~llp/flask/results/assets/dash.css?m=1660260546.7105474 HTTP/1.1[0m" 404 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:26] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:28] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:28] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:29] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:29] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:29] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:29] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:31] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:26:33] "GET /file_download/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/assets/dash.css?m=1660260546.7105474 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/_dash-component-suites/dash/deps/polyfill@7.v2_6_1m1660264263.12.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/_dash-component-suites/dash/deps/react@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/_dash-component-suites/dash/deps/prop-types@15.v2_6_1m1660264263.8.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/_dash-component-suites/dash/deps/react-dom@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:42] "GET /results/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_6_1m1660264261.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-component-suites/dash/dcc/dash_core_components.v2_6_1m1660264263.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_6_1m1660264263.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-component-suites/dash/html/dash_html_components.v2_0_5m1660264263.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-component-suites/dash/dash_table/bundle.v5_1_5m1660264262.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-dependencies HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:43] "GET /results/_dash-layout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "GET /results/assets/favicon.ico?m=1660260546.7105474 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "POST /results/_dash-update-component HTTP/1.1" 200 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 170, in update_dropdown
+    cache_files = os.listdir(dash_cache_path)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/pipeline_app/GO_pipeline/../../data/dash_cache/'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "GET /results/_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "GET /results/_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:44] "GET /results/_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:45] "POST /results/_dash-update-component HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:51] "[36mGET /results/assets/dash.css?m=1660260546.7105474 HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:52] "GET /results/_dash-component-suites/dash/dcc/dash_core_components.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:52] "GET /results/_dash-component-suites/dash/dcc/dash_core_components-shared.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:52] "GET /results/_dash-component-suites/dash/html/dash_html_components.min.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:53] "GET /results/_dash-component-suites/dash/dcc/async-dropdown.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:53] "GET /results/_dash-component-suites/dash/dash_table/bundle.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:27:53] "GET /results/_dash-component-suites/dash/dcc/async-graph.js.map HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:28] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:29] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:29] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:29] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:29] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:38] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:39] "GET /loading_page/5045302928776955 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:40] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:40] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:40] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:29:40] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '5045302928776955', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:45] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:46] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:46] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:46] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:46] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:52] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:52] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:53] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:53] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:53] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:53] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:30:55] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:02] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "GET /loading_page/4310454785364958 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:31:03] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '4310454785364958', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'preset_exp': 'True', 'preset_niea': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:43] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "GET /loading_page/5045302928776955 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:42:50] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '5045302928776955', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:persisting dash info in /home/ec2-user/pipeline_app/GO_pipeline/../data/dash_cache/5045302928776955.pkl
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:45:20] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:47:00] "GET /file_download/5045302928776955 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "GET /loading_page/4410549185284744 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:53:54] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '4410549185284744', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:00] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "GET /loading_page/1007313621297634 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1007313621297634', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:GO_pipeline.app_gen:Exception on /server [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/app.py", line 247, in process_sequence
+    run_pipeline(input_dict, analysis_content_dict)
+  File "/home/ec2-user/pipeline_app/GO_pipeline/pipeline_methods.py", line 89, in run_pipeline
+    propogate_terms=propogate_terms)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/go_bench/pipeline.py", line 30, in pipeline
+    prot_dict = load_protein_annotations(goa_path, codes, min_date=min_date, max_date=max_date)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/go_bench/load_tools.py", line 39, in load_protein_annotations
+    for zdf in df_iter:
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/io/parsers/readers.py", line 1024, in __next__
+    return self.get_chunk()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/io/parsers/readers.py", line 1074, in get_chunk
+    return self.read(nrows=size)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/io/parsers/readers.py", line 1059, in read
+    df = DataFrame(col_dict, columns=columns, index=index)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/frame.py", line 614, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/construction.py", line 465, in dict_to_mgr
+    arrays, data_names, index, columns, dtype=dtype, typ=typ, consolidate=copy
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/construction.py", line 136, in arrays_to_mgr
+    arrays, arr_names, axes, consolidate=consolidate
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/managers.py", line 1773, in create_block_manager_from_arrays
+    blocks = _form_blocks(arrays, names, axes, consolidate)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/managers.py", line 1863, in _form_blocks
+    items_dict["ObjectBlock"], np.object_, consolidate=consolidate
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/managers.py", line 1903, in _simple_blockify
+    values, placement = _stack_arrays(tuples, dtype)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/pandas/core/internals/managers.py", line 1957, in _stack_arrays
+    stacked = np.empty(shape, dtype=dtype)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 130. MiB for an array with shape (17, 1000000) and data type object
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 02:54:23] "[35m[1mPOST /server HTTP/1.1[0m" 500 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:21] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:21] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:21] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:21] "GET /static/images/cal_logo.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:22] "GET /static/images/model_viz_clip.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:22] "GET /static/images/mofradlab_icon.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:24] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:25] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:27] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:27] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:28] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:31] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:57] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:57] "GET /loading_page/7453518175735215 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:58] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:58] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:58] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:32:58] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '7453518175735215', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:02] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:02] "GET /loading_page/331098732693976 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:03] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:03] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:03] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:33:03] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '331098732693976', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:08] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:08] "GET /loading_page/331098732693976 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:09] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:09] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:09] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:09] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '331098732693976', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:persisting dash info in /home/ec2-user/pipeline_app/GO_pipeline/../data/dash_cache/331098732693976.pkl
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:34:58] "POST /server HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "GET /loading_page/7929982327542917 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:38:44] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '7929982327542917', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+ERROR:root:persisting dash info in /home/ec2-user/pipeline_app/GO_pipeline/../data/dash_cache/7929982327542917.pkl
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:39:35] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 03:39:48] "GET /file_download/7929982327542917 HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:20] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:26] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:26] "GET /loading_page/5063764898615939 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:27] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:27] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:27] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:27] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '5063764898615939', 'EXP': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:29] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:45:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:13] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "GET /loading_page/5063764898615939 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:14] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '5063764898615939', 'EXP': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:16] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:50:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:43] "GET /loading_page/5063764898615939 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:44] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:44] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:44] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:44] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:47] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "GET /loading_page/5063764898615939 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:48] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '5063764898615939', 'EXP': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 06:54:50] "POST /server HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:40] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "GET /loading_page/5063764898615939 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:41] "POST /server_check HTTP/1.1" 200 -
+ERROR:root:{'form_content_id': '5063764898615939', 'EXP': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:43] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 07:32:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:14] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:15] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:15] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:15] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:15] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:21] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:21] "GET /loading_page/6202527524282793 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:22] "POST /server_check HTTP/1.1" 200 -
+ERROR:root:{'form_content_id': '6202527524282793', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:58:23] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 15:59:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "GET /loading_page/6202527524282793 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:46] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:48] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:48] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:03:55] "GET /file_download/6202527524282793 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/6202527524282793 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/assets/dash.css?m=1660260546.7105474 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/_dash-component-suites/dash/deps/react@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/_dash-component-suites/dash/deps/polyfill@7.v2_6_1m1660264263.12.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/_dash-component-suites/dash/deps/react-dom@16.v2_6_1m1660264263.14.0.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/_dash-component-suites/dash/deps/prop-types@15.v2_6_1m1660264263.8.1.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:27] "GET /results/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_6_1m1660264261.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-component-suites/dash/dcc/dash_core_components.v2_6_1m1660264263.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_6_1m1660264263.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-component-suites/dash/html/dash_html_components.v2_0_5m1660264263.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-component-suites/dash/dash_table/bundle.v5_1_5m1660264262.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-layout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/_dash-dependencies HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:28] "GET /results/assets/favicon.ico?m=1660260546.7105474 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/dcc/dash_core_components.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/dcc/dash_core_components-shared.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/html/dash_html_components.min.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "POST /results/_dash-update-component HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/dash_table/bundle.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "POST /results/_dash-update-component HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:29] "GET /results/_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:30] "GET /results/_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:30] "GET /results/_dash-component-suites/dash/dcc/async-graph.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:30] "GET /results/_dash-component-suites/dash/dcc/async-dropdown.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:30] "POST /results/_dash-update-component HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:04:57] "POST /results/_dash-update-component HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "GET /loading_page/1409150688512524 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:04] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1409150688512524', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HDA': 'True', 'IKR': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:06] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:06] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "GET /loading_page/1020146655159638 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:18] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '1020146655159638', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HDA': 'True', 'HGI': 'True', 'IKR': 'True', 'preset_exp': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:20] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:20] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:14:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "GET /loading_page/1409150688512524 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:02] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:04] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:04] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:15:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "GET /loading_page/1020146655159638 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:14] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:16] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:17:16] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:43] "GET /results/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:43] "[36mGET /results/assets/dash.css?m=1660260546.7105474 HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:44] "GET /results/_dash-layout HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:44] "GET /results/_dash-dependencies HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:44] "POST /results/_dash-update-component HTTP/1.1" 200 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 90, in update_model_dropdown
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace IS NULL AND submission.testing_set IS NULL AND submission.testing_quality IS NULL ORDER BY submission.max_f1 DESC]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:45] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:45] "[36mGET /results/_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:45] "[36mGET /results/_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:45] "[36mGET /results/_dash-component-suites/dash/dcc/async-plotlyjs.js HTTP/1.1[0m" 304 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 106, in update_model_graph
+    submissions = Submission.query.filter_by(id=model_id).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.id = ?]
+[parameters: (5,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:45] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:47] "[36mGET /results/assets/dash.css?m=1660260546.7105474 HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/dcc/dash_core_components.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/dcc/dash_core_components-shared.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/dcc/async-graph.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/dash_table/bundle.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/html/dash_html_components.min.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:29:49] "GET /results/_dash-component-suites/dash/dcc/async-dropdown.js.map HTTP/1.1" 200 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 90, in update_model_dropdown
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace = ? AND submission.testing_set IS NULL AND submission.testing_quality IS NULL ORDER BY submission.max_f1 DESC]
+[parameters: ('biological_process',)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:30:15] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 90, in update_model_dropdown
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace = ? AND submission.testing_set IS NULL AND submission.testing_quality IS NULL ORDER BY submission.max_f1 DESC]
+[parameters: ('molecular_function',)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:30:17] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 90, in update_model_dropdown
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace = ? AND submission.testing_set = ? AND submission.testing_quality IS NULL ORDER BY submission.max_f1 DESC]
+[parameters: ('molecular_function', 'cluster50')]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:30:19] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 90, in update_model_dropdown
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace = ? AND submission.testing_set = ? AND submission.testing_quality = ? ORDER BY submission.max_f1 DESC]
+[parameters: ('molecular_function', 'cluster50', 'exp')]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:30:21] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+ERROR:GO_pipeline.app_gen:Exception on /results/_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/dash.py", line 1265, in dispatch
+    callback_context=g,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/dash/_callback.py", line 439, in add_context
+    output_value = func(*func_args, **func_kwargs)  # %% callback invoked %%
+  File "/home/ec2-user/pipeline_app/GO_pipeline/dash_app.py", line 106, in update_model_graph
+    submissions = Submission.query.filter_by(id=model_id).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.id = ?]
+[parameters: (5,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:30:24] "[35m[1mPOST /results/_dash-update-component HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:40:32] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:40:32] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+ERROR:GO_pipeline.app_gen:Exception on /leaderboard [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: submission
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 110, in leaderboard
+    .order_by(Submission.max_f1.desc()).all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2772, in all
+    return self._iter().all()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/query.py", line 2910, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/orm/session.py", line 1712, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1582, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1944, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 2125, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/util/compat.py", line 208, in raise_
+    raise exception
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/base.py", line 1901, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/sqlalchemy/engine/default.py", line 732, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: submission
+[SQL: SELECT submission.id AS submission_id, submission.testing_set AS submission_testing_set, submission.testing_quality AS submission_testing_quality, submission.namespace AS submission_namespace, submission.model AS submission_model, submission.group_name AS submission_group_name, submission.max_f1 AS submission_max_f1, submission.s_min AS submission_s_min, submission.max_rm AS submission_max_rm, submission.submission_date AS submission_submission_date 
+FROM submission 
+WHERE submission.namespace = ? AND submission.testing_set = ? AND submission.testing_quality = ? ORDER BY submission.max_f1 DESC]
+[parameters: ('molecular_function', 'cluster50', 'exp')]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 16:40:36] "[35m[1mGET /leaderboard HTTP/1.1[0m" 500 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "GET /leaderboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "GET /static/js/leaderboard.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:29] "POST /leaderboard_table HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:32] "POST /leaderboard_table HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:08:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "GET /upload_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "GET /static/js/upload_form.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:09:15] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:GO_pipeline.app_gen:Exception on /receive_upload_form [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 174, in receive_upload_form
+    file.save(save_path)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/werkzeug/datastructures.py", line 3002, in save
+    dst = open(dst, "wb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/pipeline_app/GO_pipeline/../data/user_uploads/1660324810dpg_conv_non_IEA_exp_molecular_function.pfp'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:20:10] "[35m[1mPOST /receive_upload_form HTTP/1.1[0m" 500 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:GO_pipeline.app_gen:Exception on /receive_upload_form [POST]
+Traceback (most recent call last):
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/env/lib64/python3.7/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "app.py", line 181, in receive_upload_form
+    with open("{}/{}_terms.json".format(test_path, namespace), "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/pipeline_app/GO_pipeline/../data/testing_datasets/cluster50/exp/molecular_function_terms.json'
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:21:11] "[35m[1mPOST /receive_upload_form HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:21:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:26] "GET /documentation HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "GET /static/images/sample_images/gb_file_structure.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:27] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:29] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:30] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:30] "[36mGET /static/js/form_handling.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:30] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:30] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:38] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:38] "GET /loading_page/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:39] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:39] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:39] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:39] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:41] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:41] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:23:46] "GET /file_download/1901375926214206 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:18] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:18] "GET /loading_page/4310454785364958 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:19] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:19] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:19] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:19] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '4310454785364958', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'preset_exp': 'True', 'preset_niea': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:21] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:24:21] "POST /server_check HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "GET /loading_page/4310454785364958 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:32] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:34] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:34] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:32:36] "GET /file_download/4310454785364958 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:05] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:05] "GET /loading_page/7423675782067381 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:06] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:06] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:06] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:06] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '7423675782067381', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_niea': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:07] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:33:08] "POST /server_check HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:02] "GET /loading_page/7423675782067381 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:03] "[36mGET /static/js/loading_page.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:03] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:03] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:03] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+ERROR:root:{'form_content_id': '7423675782067381', 'EXP': 'True', 'IDA': 'True', 'IPI': 'True', 'IMP': 'True', 'IGI': 'True', 'IEP': 'True', 'TAS': 'True', 'IC': 'True', 'HTP': 'True', 'HDA': 'True', 'HMP': 'True', 'HGI': 'True', 'HEP': 'True', 'IBA': 'True', 'IBD': 'True', 'IKR': 'True', 'IRD': 'True', 'ISS': 'True', 'ISO': 'True', 'ISA': 'True', 'ISM': 'True', 'IGC': 'True', 'RCA': 'True', 'NAS': 'True', 'ND': 'True', 'IEA': 'True', 'preset_exp': 'True', 'preset_niea': 'True', 'preset_all': 'True', 'biological_process': 'True', 'molecular_function': 'True', 'cellular_component': 'True', 'propogate_annotations': 'True', 'filter_method': 'min_samples', 'selected_count': '50', 'split_method': 'cluster50', 'max_date': ''}
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:04] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:41:05] "POST /server_check HTTP/1.1" 200 -
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+ERROR:root:test message for app startup from app_gen
+ERROR:root:made imports and initialized dash app
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "GET /leaderboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "GET /static/js/leaderboard.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:32] "POST /leaderboard_table HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "GET /dataset_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "GET /static/js/form_handling.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:51:54] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "POST /save_form HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "GET /loading_page/5045302928776955 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "[36mGET /static/images/cal_logo.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "GET /static/js/loading_page.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "[36mGET /static/images/model_viz_clip.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:00] "[36mGET /static/images/mofradlab_icon.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:02] "POST /server HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [12/Aug/2022 17:52:02] "POST /server_check HTTP/1.1" 200 -
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from collections import defaultdict\n",
+    "import pandas as pd\n",
+    "#from Bio.UniProt.GOA import GAF20FIELDS\n",
+    "GAF20FIELDS = ['DB', 'DB_Object_ID', 'DB_Object_Symbol', \n",
+    "            'Qualifier', 'GO_ID', 'DB:Reference', 'Evidence', \n",
+    "            'With', 'Aspect', 'DB_Object_Name', 'Synonym', \n",
+    "            'DB_Object_Type', 'Taxon_ID', 'Date', 'Assigned_By', \n",
+    "            'Annotation_Extension', 'Gene_Product_Form_ID']\n",
+    "\n",
+    "def to_data_num(year, month, day):\n",
+    "    return int(year)*10000+int(month)*100+int(day)\n",
+    "\n",
+    "#The annotations dict maps protein ids to a list of (GO annotation, evidence_code) tuples. \n",
+    "\n",
+    "neg_qualifiers = {'NOT|colocalizes_with', 'NOT|acts_upstream_of_or_within', \n",
+    "                  'NOT|acts_upstream_of', 'NOT|acts_upstream_of_or_within_negative_effect', \n",
+    "                  'NOT|enables', 'NOT|part_of', 'NOT|is_active_in', 'NOT|located_in', \n",
+    "                  'NOT|contributes_to', 'NOT|involved_in', 'acts_upstream_of_or_within_negative_effect', \n",
+    "                  'acts_upstream_of_negative_effect'}\n",
+    "                  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       DB_Object_ID     Qualifier       GO_ID Evidence      Taxon_ID      Date\n",
+      "0            A0RJH2       enables  GO:0019843      IEA  taxon:412694  20210403\n",
+      "1            A0RJH2   involved_in  GO:0000027      IEA  taxon:412694  20210403\n",
+      "2            A0RJH2       enables  GO:0019843      IEA  taxon:412694  20210403\n",
+      "3            A0RJH2    located_in  GO:0005840      IEA  taxon:412694  20210403\n",
+      "4            A0RJH2       enables  GO:0003723      IEA  taxon:412694  20210403\n",
+      "...             ...           ...         ...      ...           ...       ...\n",
+      "999995       P61275   involved_in  GO:0048245      IBA    taxon:9544  20170228\n",
+      "999996       P61275   involved_in  GO:0030593      IBA    taxon:9544  20170228\n",
+      "999997       P61275   involved_in  GO:0043547      IBA    taxon:9544  20170228\n",
+      "999998       P61275       enables  GO:0048020      IBA    taxon:9544  20201205\n",
+      "999999       P61275  is_active_in  GO:0005615      IBA    taxon:9544  20170228\n",
+      "\n",
+      "[1000000 rows x 6 columns]\n",
+      "zdf 0\n",
+      "        DB_Object_ID     Qualifier       GO_ID Evidence    Taxon_ID      Date\n",
+      "1000000       P61275   involved_in  GO:0070374      IBA  taxon:9544  20170228\n",
+      "1000001       P61275   involved_in  GO:0070098      IBA  taxon:9544  20201205\n",
+      "1000002       P61275       enables  GO:0008009      IBA  taxon:9544  20201205\n",
+      "1000003       P61275   involved_in  GO:0071356      IBA  taxon:9544  20170228\n",
+      "1000004       P61275   involved_in  GO:0071347      IBA  taxon:9544  20170228\n",
+      "...              ...           ...         ...      ...         ...       ...\n",
+      "1999995       Q3T904    located_in  GO:0005768      IEA  taxon:9913  20210403\n",
+      "1999996       Q3T904   involved_in  GO:0006914      IEA  taxon:9913  20210403\n",
+      "1999997       Q3T904  is_active_in  GO:0000407      IBA  taxon:9913  20170228\n",
+      "1999998       Q3T904  is_active_in  GO:0005776      IBA  taxon:9913  20170228\n",
+      "1999999       Q3T904   involved_in  GO:0044805      IBA  taxon:9913  20170228\n",
+      "\n",
+      "[1000000 rows x 6 columns]\n",
+      "zdf 1\n",
+      "        DB_Object_ID    Qualifier       GO_ID Evidence      Taxon_ID      Date\n",
+      "2000000       Q3T904  involved_in  GO:0034497      IBA    taxon:9913  20170228\n",
+      "2000001       Q3T904  involved_in  GO:0000422      IBA    taxon:9913  20170228\n",
+      "2000002       Q4UPN9  involved_in  GO:0006420      IEA  taxon:314565  20210403\n",
+      "2000003       Q4UPN9      enables  GO:0004814      IEA  taxon:314565  20210403\n",
+      "2000004       Q4UPN9   located_in  GO:0005737      IEA  taxon:314565  20210403\n",
+      "...              ...          ...         ...      ...           ...       ...\n",
+      "2999995       P22274   located_in  GO:0005794      IEA  taxon:237561  20210403\n",
+      "2999996       P22274  involved_in  GO:0016192      IEA  taxon:237561  20210403\n",
+      "2999997       P22274  involved_in  GO:0015031      IEA  taxon:237561  20210403\n",
+      "2999998       P22274   located_in  GO:0005794      IEA  taxon:237561  20210403\n",
+      "2999999       P22274      enables  GO:0000166      IEA  taxon:237561  20210403\n",
+      "\n",
+      "[1000000 rows x 6 columns]\n",
+      "zdf 2\n"
+     ]
+    },
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m/tmp/ipykernel_7159/1902187430.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0mannot_dict\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 16\u001b[0;31m \u001b[0mload_protein_annotations\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"../data/swissprot_goa.gaf.gz\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m\"IEA\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m/tmp/ipykernel_7159/1902187430.py\u001b[0m in \u001b[0;36mload_protein_annotations\u001b[0;34m(goa_path, annotation_codes)\u001b[0m\n\u001b[1;32m      9\u001b[0m         \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mzdf\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m         \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf\"zdf {i}\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 11\u001b[0;31m         \u001b[0mzdf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mzdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mzdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mEvidence\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0misin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mannotation_codes\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m&\u001b[0m \u001b[0;34m~\u001b[0m\u001b[0mzdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mQualifier\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0misin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mneg_qualifiers\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     12\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mprot_id\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mgo_term\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mzip\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mzdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'DB_Object_ID'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mzdf\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'GO_ID'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     13\u001b[0m             \u001b[0mannot_dict\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mprot_id\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0madd\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mgo_term\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/env/lib64/python3.7/site-packages/pandas/core/series.py\u001b[0m in \u001b[0;36misin\u001b[0;34m(self, values)\u001b[0m\n\u001b[1;32m   5023\u001b[0m         \u001b[0mdtype\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mbool\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   5024\u001b[0m         \"\"\"\n\u001b[0;32m-> 5025\u001b[0;31m         \u001b[0mresult\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0malgorithms\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0misin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_values\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvalues\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   5026\u001b[0m         return self._constructor(result, index=self.index).__finalize__(\n\u001b[1;32m   5027\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmethod\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"isin\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m~/env/lib64/python3.7/site-packages/pandas/core/algorithms.py\u001b[0m in \u001b[0;36misin\u001b[0;34m(comps, values)\u001b[0m\n\u001b[1;32m    522\u001b[0m         \u001b[0mf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mhtable\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mismember\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    523\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 524\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcomps\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mvalues\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    525\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    526\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "reduced_names = ['DB_Object_ID', 'Qualifier', 'GO_ID', 'Evidence', 'Taxon_ID', 'Date']\n",
+    "def load_protein_annotations(goa_path, annotation_codes):\n",
+    "    annotation_codes = set(annotation_codes)\n",
+    "    annot_dict = defaultdict(set)\n",
+    "    df_iter = pd.read_csv(goa_path, dtype=str, sep='\\t', comment='!', chunksize=int(1e6),\n",
+    "                            usecols=[2, 4, 5, 7, 13, 14], names=reduced_names, \n",
+    "                            )\n",
+    "    for i, zdf in enumerate(df_iter):\n",
+    "        # print(zdf)\n",
+    "        print(f\"zdf {i}\")\n",
+    "        zdf = zdf[zdf.Evidence.isin(annotation_codes) & ~zdf.Qualifier.isin(neg_qualifiers)]\n",
+    "        for row in zdf.iterrows():\n",
+    "            prot_id, go_term = row['DB_Object_ID'], row['GO_ID']\n",
+    "            annot_dict[prot_id].add(go_term)\n",
+    "    return annot_dict\n",
+    "\n",
+    "load_protein_annotations(\"../data/swissprot_goa.gaf.gz\", [\"IEA\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "52b86d4fc643f08e4d1a1f98a95e4830283a320edb9e51d352f09725c700ec7b"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.7.10 ('env')",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.10"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
