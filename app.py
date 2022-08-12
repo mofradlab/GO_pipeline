@@ -4,7 +4,7 @@ from flask.helpers import send_from_directory, url_for
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
-from GO_pipeline.app_gen import app, db, celery, root_path, Submission, SubmissionMetrics, SubmissionDescription
+from GO_pipeline.app_gen import app, db, r_queue, celery, root_path, Submission, SubmissionMetrics, SubmissionDescription
 from GO_pipeline.pipeline_methods import construct_prot_dict, run_pipeline
 from go_bench.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
 from go_bench.metrics import threshold_stats
@@ -160,7 +160,7 @@ def receive_upload_form():
         except:
             print("missing fields")
             return "[Error] Make sure all required fields are filled in."
-        
+
         if 'submission_file' not in request.files:
             return "[Error] Submission File not included."
         file = request.files['submission_file']
@@ -232,8 +232,7 @@ def process_sequence():
     print("root path", root_path)
     if request.method == 'POST':
         form_hash = list(request.form.to_dict().keys())[0]
-        print(form_hash)
-
+        print('request hash', form_hash)
         if(os.path.isfile("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash))):
             print("File for {} already generated".format(form_hash))
             return "Form Processed"
@@ -241,21 +240,38 @@ def process_sequence():
         req_dict = form_data[form_hash]
         logging.error(req_dict)
         print(req_dict)
-        print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
-        run_pipeline(input_dict, analysis_content_dict)
-        
-        source_dir = "{}/../data/generated_datasets/".format(root_path)
-        with tarfile.open("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
-            tar.add(source_dir, arcname=os.path.basename(source_dir))
+        print("sending request to celery\n\n")
+        gen_data_from_req.delay(input_dict, form_hash)
+        return "Form Processing"
 
-        filter_LRU_archive_files("{}/../data".format(root_path), 2e9, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
-        filter_LRU_archive_files("{}/../data/dash_cache".format(root_path), 2e8)
-        return "Form Processed"
+@celery.task(name="form_processing", ignore_result=True, soft_time_limit=1800, time_limit=2400)
+def gen_data_from_req(input_dict, form_hash):
+    if (not r_queue.set(f"{form_hash}_GEN", 'PROCESSING')):
+        return
+    run_pipeline(input_dict, analysis_content_dict)
+    source_dir = "{}/../data/generated_datasets/".format(root_path)
+    with tarfile.open("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
+        tar.add(source_dir, arcname=os.path.basename(source_dir))
+    filter_LRU_archive_files("{}/../data".format(root_path), 2e9, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
+    filter_LRU_archive_files("{}/../data/dash_cache".format(root_path), 2e8)
+    r_queue.set(f"{form_hash}_GEN", 'READY')
 
-def mytask():
-    pass
+@app.route('/server_check', methods=['GET', 'POST'])
+def check_progress():
+    if request.method == 'POST':
+        form_hash = list(request.form.to_dict().keys())[0]
+        print(f"recieved post request checking progress for {form_hash}")
+        if(os.path.isfile("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash))):
+            print("File for {} already generated".format(form_hash))
+            return "DATA READY"
+        status = r_queue.get(f"{form_hash}_GEN")
+        if(status == "PROCESSING"):
+            return "DATA PROCESSING"
+        if(status == "READY"):
+            r_queue.delete(f"{form_hash}_GEN")
+        return "JOB FAILED"
 
 #Archive files should be deleted, starting with the oldest, when they take up more than 2 GB of space. 
 def filter_LRU_archive_files(file_dir, max_disk_usage, file_identifier=None):

@@ -6,7 +6,7 @@ from GO_pipeline.make_celery import make_celery
 import redis
 
 r_queue = redis.Redis(host='localhost', port=6379, db=0)
-r_cache = redis.Redis(host='localhost', port=6380, db=0)
+# r_cache = redis.Redis(host='localhost', port=6380, db=0)
 
 root_path = os.path.abspath(os.path.dirname(__file__)) #Used for file management because cwd is unknown. 
 logging.basicConfig(filename=root_path + '/app.log', level=logging.ERROR)
