@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from logging import PlaceHolder
 import dash
-import dash_html_components as html
-import dash_core_components as dcc
-from pipeline_app.app_gen import app, db, root_path, Submission, SubmissionMetrics, SubmissionDescription
+from dash import dcc, html
+from GO_pipeline.app_gen import app, db, root_path, Submission, SubmissionMetrics, SubmissionDescription
 import time
 import plotly.express as px
 import plotly.graph_objects as go
@@ -167,7 +166,7 @@ def initialize_dash_app(name, server, analysis_content_dict, **kwargs):
         if(data_id in analysis_content_dict):
             analysis_data = analysis_content_dict[data_id]
         else:
-            dash_cache_path = "{}/../../data/dash_cache/".format(root_path)
+            dash_cache_path = "{}/../data/dash_cache/".format(root_path)
             cache_files = os.listdir(dash_cache_path)
             print("dash cache contents", cache_files)
             for f_name in cache_files:

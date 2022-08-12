@@ -2,6 +2,11 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 import logging
+from GO_pipeline.make_celery import make_celery
+import redis
+
+r_queue = redis.Redis(host='localhost', port=6379, db=0)
+r_cache = redis.Redis(host='localhost', port=6380, db=0)
 
 root_path = os.path.abspath(os.path.dirname(__file__)) #Used for file management because cwd is unknown. 
 logging.basicConfig(filename=root_path + '/app.log', level=logging.ERROR)
@@ -9,10 +14,15 @@ logging.error("test message for app startup from app_gen")
 print("flask __name__", __name__)
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "{}/../../data/user_uploads".format(root_path)
-app.config['GOA_PATH'] = "../../data/swissprot_goa.gaf.gz" 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}/../../data/SQL_leaderboard.db'.format(root_path)
+app.config['UPLOAD_FOLDER'] = "{}/../data/user_uploads".format(root_path)
+app.config['GOA_PATH'] = "../data/swissprot_goa.gaf.gz" 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}/../data/SQL_leaderboard.db'.format(root_path)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.update(
+    CELERY_BROKER_URL='redis://localhost:6379',
+    CELERY_RESULT_BACKEND='redis://localhost:6379'
+)
+celery = make_celery(app)
 db = SQLAlchemy(app)
 
 @app.context_processor

@@ -1,7 +1,7 @@
 from goatools.obo_parser import GODag
 import os
 root_path = os.path.abspath(os.path.dirname(__file__))
-godag = GODag("{}/../../data/go-basic.obo".format(root_path))
+godag = GODag("{}/../data/go-basic.obo".format(root_path))
 
 #godag_obsolete = GODag("../data/go-basic.obo", load_obsolete=True)
 

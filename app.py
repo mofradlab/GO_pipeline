@@ -4,17 +4,17 @@ from flask.helpers import send_from_directory, url_for
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
-from pipeline_app.app_gen import app, db, root_path, Submission, SubmissionMetrics, SubmissionDescription
-from pipeline_app.pipeline_methods import construct_prot_dict, run_pipeline
+from GO_pipeline.app_gen import app, db, celery, root_path, Submission, SubmissionMetrics, SubmissionDescription
+from GO_pipeline.pipeline_methods import construct_prot_dict, run_pipeline
 from go_bench.load_tools import read_sparse, load_GO_tsv_file, convert_to_sparse_matrix
 from go_bench.metrics import threshold_stats
-from pipeline_app.dash_app import initialize_dash_app
+from GO_pipeline.dash_app import initialize_dash_app
 import tarfile
 import logging
 import os
 import datetime, time, json, pickle
 
-with open("{}/../../data/ia_dict.json".format(root_path), "r") as f:
+with open("{}/../data/ia_dict.json".format(root_path), "r") as f:
     str_ia_dict = json.load(f) #Load precalculated ia values for all GO terms. 
     go_ia_dict = {int(x): y for x, y in str_ia_dict.items()}
 
@@ -37,13 +37,12 @@ logging.error("made imports and initialized dash app")
 def default():
     return "hello world"
 
-
 with app.test_request_context():
     requests_pathname_prefix = url_for('default') + 'results/'
 
 dash_app = initialize_dash_app(__name__, app, analysis_content_dict, 
                     routes_pathname_prefix="/results/", 
-                    requests_pathname_prefix="/~llp/flask/results/")
+                    requests_pathname_prefix="/results/")
 
 @app.route("/home")
 def home():
@@ -100,7 +99,6 @@ def get_table():
     print([s.s_min for s in submissions])
     return render_template("leaderboard_table.html", headings=headings, data=data, col_names=col_names, zip=zip)
 
-
 @app.route("/leaderboard")
 def leaderboard():
     namespace = "molecular_function"
@@ -117,9 +115,9 @@ def leaderboard():
 
 @app.route("/file_download/<form_hash>")
 def file_download(form_hash):
-    file_path = "{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash)
+    file_path = "{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash)
     if(os.path.isfile(file_path)):
-        return send_file(file_path, as_attachment=True, attachment_filename="GO_benchmark_data.tar.gz")
+        return send_file(file_path, as_attachment=True, download_name="GO_benchmark_data.tar.gz")
     else:
         return "File not found. Try resubmitting form."
 
@@ -179,7 +177,7 @@ def receive_upload_form():
         print("saved file")
 
         #Load testing predictions
-        test_path = "{}/../../data/testing_datasets/{}/{}".format(root_path, testing_set, testing_quality)
+        test_path = "{}/../data/testing_datasets/{}/{}".format(root_path, testing_set, testing_quality)
         with open("{}/{}_terms.json".format(test_path, namespace), "r") as f: 
             test_ids = json.load(f)
         testing_dict = load_GO_tsv_file("{}/testing_{}_annotations.tsv".format(test_path, namespace))
@@ -236,7 +234,7 @@ def process_sequence():
         form_hash = list(request.form.to_dict().keys())[0]
         print(form_hash)
 
-        if(os.path.isfile("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash))):
+        if(os.path.isfile("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash))):
             print("File for {} already generated".format(form_hash))
             return "Form Processed"
 
@@ -246,18 +244,18 @@ def process_sequence():
         print("parsing request\n\n\n\n")
         input_dict = construct_prot_dict(req_dict)
         print(input_dict)
-
-        # return send_file("{}/../../data/gene_ontology_data.tar.gz".format(root_path))
-
         run_pipeline(input_dict, analysis_content_dict)
         
-        source_dir = "{}/../../data/generated_datasets/".format(root_path)
-        with tarfile.open("{}/../../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
+        source_dir = "{}/../data/generated_datasets/".format(root_path)
+        with tarfile.open("{}/../data/{}_gene_ontology_data.tar.gz".format(root_path, form_hash), "w:gz") as tar:
             tar.add(source_dir, arcname=os.path.basename(source_dir))
 
-        filter_LRU_archive_files("{}/../../data".format(root_path), 2e9, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
-        filter_LRU_archive_files("{}/../../data/dash_cache".format(root_path), 2e8)
+        filter_LRU_archive_files("{}/../data".format(root_path), 2e9, "_gene_ontology_data") #Make sure server doesn't cache too many files. 
+        filter_LRU_archive_files("{}/../data/dash_cache".format(root_path), 2e8)
         return "Form Processed"
+
+def mytask():
+    pass
 
 #Archive files should be deleted, starting with the oldest, when they take up more than 2 GB of space. 
 def filter_LRU_archive_files(file_dir, max_disk_usage, file_identifier=None):
